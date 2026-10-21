@@ -1,6 +1,6 @@
 # Wind Farm OT/SCADA Simulator — Architecture v1
 
-**Purpose:** A self-contained, offline-capable personal OT/offensive-security project for wind-farm control, monitoring, and safety-boundary testing, inspired by the operational setting of Moroccan wind farms. It is not a model of a real operator's actual systems, turbine configuration, protocols, or security posture.
+**Purpose:** A self-contained, offline-capable personal OT/offensive-security project for wind-farm control, monitoring, and safety-boundary testing. It models a generic wind farm, not any operator's actual equipment, topology, protocol mapping, or security posture.
 
 ## System boundary and architecture
 
@@ -147,7 +147,23 @@ Historian records: `raw_observations`, `plant_truth` (project-only evaluation, n
 
 **Development now:** Run local Python scripts on the Pi. A second local Python process can model a logically separate safety service when that stage is built; no VM, Docker Compose, or Kali installation is needed for the current offline baseline. Distinct processes on one machine are not physical safety independence. **Optional later offsec project on an x86 laptop:** VirtualBox with an Ubuntu Server target VM and a separate Kali attacker VM on a host-only network; the wind-farm services can run inside Ubuntu and expose only selected project interfaces to Kali. Use VM snapshots before experiments and avoid bridged networking. A Pi-native Docker deployment is another later option but shares the host kernel. Never assume an x86 Kali VM runs natively on an ARM64 Pi. CSV fixtures and a local browser make the baseline offline-capable. Avoid proprietary operator data, logos, plant topology, or any assertion this is its actual infrastructure.
 
-**Current executable slice:** `<project root>` contains source-weather retrieval, real historical reanalysis CSV, the windpowerlib three-turbine **offline baseline**, a simulated overheat/trip case, and tests. It does **not** yet contain running Modbus, a separate safety process, VM images, SCADA, attack paths, or 3-D visualization; those remain milestones. The current trip is an in-process model rule and must not be presented as an independently deployed SIS.
+**Current executable slice (2026-10-21):** The project includes two explicitly separate tracks. The **historical observation track** reads three turbines from an attributed published Greek wind-farm SCADA dataset, publishes selected measurements through an actual loopback **Modbus TCP server**, polls them in a distinct collector process, persists observations/quality/events in SQLite, and serves a read-only browser HMI. Original recorded event logs enter the historian as a separately imported CSV feed, **not through Modbus**. The **synthetic engineering track** uses reanalysis weather, a windpowerlib turbine approximation, operational states, and a logically separate local safety child process; it has tested trip, denied start, reset and restart but no physical instrumentation, safety certification, or networked command interface. The historical track cannot be "controlled" retroactively. There is no VM requirement now; no data diode, IEC 61400-25 stack, authenticated controller/API, independently instrumented SIS, or 3-D visualization yet.
+
+### Executable Modbus/SCADA/HMI slice
+
+From project root install `uv pip install --python .venv/bin/python -r requirements-dev.txt` (or equivalent venv install). Launch three terminals/processes:
+
+```
+.venv/bin/python -m scripts.ot_gateway --start-index 62 --limit 6 --interval 2 --loop
+.venv/bin/python -m scripts.scada_collector --interval 0.5 --max-age 5
+.venv/bin/python -m scripts.hmi
+```
+
+Open `http://127.0.0.1:18080/`. The read-only gateway binds **only** `127.0.0.1:15020`, with Modbus device IDs **1,2,3** corresponding to **WT01,WT02,WT03**. FC04 reads thirteen zero-based registers at address 0; an attempted register write returns a Modbus exception. HMI and historian have separate processes. Stop the three processes with Ctrl-C after the demo. A host-only VM network can be added later when cross-host testing is justified; do not expose this deliberately unauthenticated protocol on a public interface.
+
+Project map **v1, not a vendor/IEC register mapping**: address 0 version (=1); 1 rolling sequence; 2 wind m/s ×10 unsigned; 3 bearing °C ×10 signed 16-bit; 4 rotor RPM ×10 unsigned; 5–6 source power (retains published `[W]` label) ×10 signed 32-bit big-endian; 7 bitmask (bit 0 publisher `missing_data`, bits 1–4 validity for wind, bearing, rotor, power); 8–12 source year/month/day/hour/minute with **unspecified source timezone**. Missing wind/RPM `0xffff`, temperature `0x8000`, and power `0x80000000` have validity bits cleared; no missing value becomes zero. Poll timestamps are UTC. An unchanged sequence beyond the collector's max-age becomes **STALE**, and an unavailable endpoint becomes **COMM_LOSS**, with null current measurements and retained history. Source event logs are separately imported into SQLite and displayed with their source timestamps, not invented by the collector. The demo window starts at source time 10:20 and includes a real WT02 high-wind alarm at 10:32; replay speed/loop are wall-clock presentation settings, not field sampling frequency.
+
+**Security boundary:** The gateway is intentionally read-only because authentic historical measurements cannot be changed by operator commands. The existing synthetic plant/safety process is a separate exercise. A future command channel must act only on that simulated plant, require actor/role checks and audits, and prove that a safety trip overrides it. This stack alone is a SCADA observation stack, not a full wind-farm control system or a production-secure OT deployment.
 
 ## Evidence behind tool selection
 

@@ -20,3 +20,9 @@ The CSV `data/raw/tarfaya_weather_2024-01-01_07.csv` contains actual API-returne
 - `data/raw/greek_scada_3t_2020-02-05.csv` holds 432 recorded 10-minute measurements (144 per turbine); `data/raw/greek_logs_3t_2020-02-05.csv` holds 943 actual source events, including 146 source-labelled alarms. These are *source observations*; the extraction does not synthesize alarms.
 - `scripts/replay_scada.py` feeds recorded **SCADA** bearing temperatures through the separate local safety service and adds `counterfactual_trip`. This is a **hypothetical project policy evaluation**, NOT a recorded protection trip, an independent physical SIS sensor, or any command sent to the Greek wind farm. The 85°C project threshold is not a source/OEM setting; on the selected day it produces **no** overtemperature trips.
 - All previously described Tarfaya `data/derived/` CSVs are model outputs. The newly named `greek_scada_safety_counterfactual_2020-02-05.csv` copies authentic measurements and appends explicitly hypothetical safety decisions; do not present the entire file as raw measurements.
+
+## Protocol and architecture references
+
+- https://modbus.org/modbus-specifications — Modbus Organization's published specifications. The project's thirteen-register layout is an original **project-specific** mapping, not an OEM map. Modbus TCP in this project is deliberately bound to loopback, and no authentication or encryption is implied by the protocol.
+- https://pymodbus.readthedocs.io/en/latest/source/server.html — upstream PyModbus TCP server docs; implementation pinned to `pymodbus==3.16.1` and tested against a real local TCP client.
+- https://webstore.iec.ch/en/publication/29062 — IEC 61400-25-1 describes wind-power communications modelling; our Modbus mapping is **not** an IEC 61400-25 implementation.

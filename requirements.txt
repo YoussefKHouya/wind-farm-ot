@@ -1,3 +1,6 @@
 windpowerlib==0.2.2
 pandas==3.0.6
 openpyxl==3.1.5
+pymodbus==3.16.1
+fastapi==0.159.1
+uvicorn==0.38.0

@@ -5,3 +5,4 @@ __pycache__/
 secrets/
 tmp/
 data/external/
+data/historian/

@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Wind Farm Control Room · Historical SCADA Replay</title>
+<style>
+:root{color-scheme:dark;font:16px system-ui,Arial,sans-serif;background:#0c1724;color:#eef4fa}
+*{box-sizing:border-box}body{margin:0;min-width:290px}header{padding:1.3rem max(1rem,calc((100vw - 1180px)/2));border-bottom:1px solid #34465b;background:#112233}
+h1{margin:0;font-size:1.5rem;letter-spacing:.03em}header p{margin:.35rem 0;color:#b8cede}main{max-width:1180px;margin:0 auto;padding:1.2rem}section{margin:0 0 1.5rem}h2{font-size:1.15rem}
+.notice{border-left:4px solid #e6bd60;background:#273341;padding:.8rem;margin:.8rem 0;line-height:1.45}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:1rem}
+.card{border:1px solid #3e5269;border-radius:.6rem;background:#17283a;padding:1.2rem}
+.card h3{margin:0 0 .7rem;display:flex;justify-content:space-between}.quality{font-size:.75rem;border:1px solid currentColor;border-radius:1rem;padding:.25rem .5rem;color:#86e8bf}
+.bad{color:#ff9a9a}.unknown{color:#ebd38a}.reading{font-size:1.7rem;font-weight:700;margin:.3rem 0}.muted{color:#a8bfd2}dl{display:grid;grid-template-columns:1fr auto;gap:.45rem;margin:1rem 0 0}dt{color:#b7cee1}dd{margin:0;font-variant-numeric:tabular-nums}
+.table{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:.9rem}th,td{padding:.5rem;border-bottom:1px solid #34465b;text-align:left}th{color:#acd2e7}tr:hover{background:#20354a}button{border:1px solid #70c8e8;color:#d7f3ff;background:#1d4560;border-radius:.3rem;padding:.35rem .65rem;cursor:pointer}button:focus-visible{outline:3px solid #ffe182}
+#trend{display:block;width:100%;height:170px;background:#14293d;border:1px solid #34465b;border-radius:.4rem}footer{color:#a8bfd2;font-size:.82rem;line-height:1.5}
+</style></head><body>
+<header><h1>Wind Farm Control Room</h1><p>Historical SCADA replay · Three recorded turbines · Modbus TCP → collector → SQLite → HMI</p></header>
+<main>
+<div class="notice"><strong>Replay, not a live farm.</strong> Measurements and event logs are from a published Greek wind-farm dataset. The source clock's timezone is unverified. This read-only display cannot start, stop, or reset a turbine. Power retains the publisher's <code>[W]</code> label; no unverified unit conversion.</div>
+<p id="connection" role="status">Waiting for collector data…</p>
+<section aria-labelledby="fleet-title"><h2 id="fleet-title">Fleet telemetry</h2><div class="grid" id="fleet"></div></section>
+<section aria-labelledby="trend-title"><h2 id="trend-title">Recorded production · <span id="selected">WT01</span></h2><canvas id="trend" width="950" height="170" aria-label="Time-series of source-labelled power for selected turbine" role="img"></canvas><p class="muted">Latest sampled values, in source-labelled [W]. Gaps are not interpolated.</p></section>
+<section aria-labelledby="alarms-title"><h2 id="alarms-title">Recorded alarms &amp; warnings</h2><div class="table"><table><thead><tr><th>Turbine</th><th>Source time</th><th>Type</th><th>Code</th><th>Description</th></tr></thead><tbody id="source-alarms"></tbody></table></div></section>
+<section aria-labelledby="events-title"><h2 id="events-title">Recent recorded source events</h2><div class="table"><table><thead><tr><th>Turbine</th><th>Source time</th><th>Type</th><th>Code</th><th>Description</th></tr></thead><tbody id="source-events"></tbody></table></div></section>
+<section aria-labelledby="health-title"><h2 id="health-title">Collector diagnostics</h2><div class="table"><table><thead><tr><th>Turbine</th><th>Poll time (UTC)</th><th>Event</th></tr></thead><tbody id="collector-events"></tbody></table></div></section>
+<footer>Source: Ntafalias, Visvardi &amp; Weißenfeld, <em>Six-Month Monitoring Dataset from a 10-Turbine Onshore Wind Farm in Greece</em>, Zenodo 10.5281/zenodo.14546480 (CC BY 4.0). Register map and replay gateway are local project implementations, not OEM equipment.</footer>
+</main><script>
+const turbines=['WT01','WT02','WT03'];let selected='WT01';
+const fmt=(v,d=1)=>v===null||v===undefined?'—':Number(v).toFixed(d);
+function cell(tag,value){const node=document.createElement(tag);node.textContent=value;return node}
+function table(id,rows,keys){const body=document.getElementById(id);body.replaceChildren();for(const row of rows){const tr=document.createElement('tr');for(const key of keys)tr.appendChild(cell('td',row[key]??'—'));body.appendChild(tr)}}
+function cards(rows){const root=document.getElementById('fleet');root.replaceChildren();for(const name of turbines){const row=rows[name];const card=document.createElement('article');card.className='card';const heading=cell('h3',name);const badge=cell('span',row?.quality||'NO DATA');badge.className='quality '+(row?.quality==='GOOD'?'':row?.quality==='SOURCE_MISSING'?'unknown':'bad');heading.appendChild(badge);card.appendChild(heading);
+ const power=cell('p',row?fmt(row.source_power_labelled_w)+' source [W]':'No observation');power.className='reading';card.appendChild(power);
+ const meta=cell('p',row?.source_timestamp?'Source time: '+row.source_timestamp+' (TZ unspecified)':'Source time: —');meta.className='muted';card.appendChild(meta);
+ const dl=document.createElement('dl');for(const [label,key,unit] of [['Wind','wind_mps',' m/s'],['Bearing','bearing_temp_c',' °C'],['Rotor','rotor_rpm',' RPM']]){dl.appendChild(cell('dt',label));dl.appendChild(cell('dd',row?.[key]==null?'—':fmt(row[key])+unit))}card.appendChild(dl);
+ const button=cell('button','View trend');button.type='button';button.setAttribute('aria-label','View '+name+' power trend');button.onclick=()=>{selected=name;document.getElementById('selected').textContent=name;loadTrend()};card.appendChild(button);root.appendChild(card)}}
+async function loadTrend(){try{const r=await fetch('/api/history/'+selected,{cache:'no-store'});if(!r.ok)throw Error('History unavailable');const data=await r.json();const points=data.observations.reverse().map(x=>x.source_power_labelled_w);const cvs=document.getElementById('trend');const ctx=cvs.getContext('2d');ctx.clearRect(0,0,cvs.width,cvs.height);const valid=points.filter(v=>v!==null);if(!valid.length)return;const lo=Math.min(0,...valid),hi=Math.max(1,...valid);ctx.strokeStyle='#60dbd1';ctx.lineWidth=2;ctx.beginPath();let started=false;points.forEach((v,i)=>{if(v===null){started=false;return}const x=20+i*(cvs.width-40)/Math.max(1,points.length-1),y=cvs.height-15-(v-lo)*(cvs.height-30)/(hi-lo||1);if(!started){ctx.moveTo(x,y);started=true}else ctx.lineTo(x,y)});ctx.stroke()}catch(e){document.getElementById('connection').textContent=e.message}}
+async function refresh(){try{const [r,s]=await Promise.all([fetch('/api/fleet',{cache:'no-store'}),fetch('/api/source-events',{cache:'no-store'})]);if(!r.ok||!s.ok)throw Error('Historian unavailable');const data=await r.json(),source=await s.json();cards(data.turbines);table('collector-events',data.events,['turbine_id','observed_at_utc','kind']);table('source-alarms',(source.alarms||[]).slice().reverse(),['source_turbine_id','Detected','Event type','Code','Description']);table('source-events',source.events.slice().reverse(),['source_turbine_id','Detected','Event type','Code','Description']);document.getElementById('connection').textContent='Collector feed · '+Object.keys(data.turbines).length+' turbine(s) seen · '+(new Date()).toLocaleTimeString();await loadTrend()}catch(e){document.getElementById('connection').textContent='Feed error: '+e.message}}
+refresh();setInterval(refresh,1500);
+</script></body></html>
