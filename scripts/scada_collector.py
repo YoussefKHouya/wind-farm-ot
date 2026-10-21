@@ -18,8 +18,9 @@ from scripts.ot_protocol import WORDS, decode_registers
 from scripts.ot_gateway import IDS
 from scripts.simulate import ROOT
 
-DB_DEFAULT = ROOT / "data/historian/scada.sqlite"
-LOGS_DEFAULT = ROOT / "data/raw/greek_logs_3t_2020-02-05.csv"
+DB_DEFAULT = ROOT / "data/historian/control_room_week.sqlite"
+LOGS_DEFAULT = ROOT / "data/raw/greek_logs_3t_2020-02-05_11.csv"
+DEFAULT_MAX_AGE_SECONDS = 25.0  # must exceed the ten-second replay tick
 
 
 class Historian:
@@ -54,7 +55,7 @@ class Historian:
         return json.loads(row[0]) if row else None
 
     def record(self, device_id: int, values: dict, observed_at_utc: str,
-               max_age_seconds: float = 5.0) -> bool:
+               max_age_seconds: float = DEFAULT_MAX_AGE_SECONDS) -> bool:
         turbine = IDS[device_id]
         previous = self._current(turbine)
         last = self.conn.execute(
@@ -141,7 +142,7 @@ class Historian:
         self.conn.close()
 
 
-async def poll_once(host: str, port: int, db: Historian, max_age_seconds: float = 5.0):
+async def poll_once(host: str, port: int, db: Historian, max_age_seconds: float = DEFAULT_MAX_AGE_SECONDS):
     now = datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
     client = AsyncModbusTcpClient(host, port=port, timeout=0.7, retries=0)
     try:
@@ -181,7 +182,8 @@ def main():
     parser.add_argument("--logs-source", type=Path, default=LOGS_DEFAULT,
                         help="publisher event CSV; imported to historian separately from Modbus")
     parser.add_argument("--interval", type=float, default=0.5)
-    parser.add_argument("--max-age", type=float, default=5.0, help="seconds without a fresh sequence before STALE")
+    parser.add_argument("--max-age", type=float, default=DEFAULT_MAX_AGE_SECONDS,
+                        help="seconds without a fresh sequence before STALE (default 25)")
     args = parser.parse_args()
     if args.interval <= 0 or args.max_age <= args.interval:
         parser.error("interval must be positive and max-age must exceed interval")

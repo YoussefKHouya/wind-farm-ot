@@ -16,9 +16,10 @@ from pymodbus.simulator import SimData, SimDevice
 from pymodbus.simulator.simdata import DataType
 
 from scripts.ot_protocol import WORDS, encode_sample
-from scripts.replay_scada import INPUT_DEFAULT
+from scripts.simulate import ROOT
 
 IDS = {1: "WT01", 2: "WT02", 3: "WT03"}
+DEFAULT_SOURCE = ROOT / "data/raw/greek_scada_3t_2020-02-05_11.csv"
 
 
 def load_source(path: Path, limit: int | None = None, start: int = 0) -> dict[int, list[dict]]:
@@ -91,10 +92,11 @@ class Gateway:
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--source", type=Path, default=INPUT_DEFAULT)
+    parser.add_argument("--source", type=Path, default=DEFAULT_SOURCE)
     parser.add_argument("--host", default="127.0.0.1", choices=("127.0.0.1",))
     parser.add_argument("--port", type=int, default=15020)
-    parser.add_argument("--interval", type=float, default=1.0)
+    parser.add_argument("--interval", type=float, default=10.0,
+                        help="wall-clock seconds per ten-minute source record (default 10)")
     parser.add_argument("--limit", type=int, help="source ticks to replay (one tick per selected turbine)")
     parser.add_argument("--start-index", type=int, default=0, help="zero-based source tick to start from")
     parser.add_argument("--loop", action="store_true", help="repeat the historical slice; sequence remains monotonic")

@@ -15,9 +15,9 @@ import pytest
 from fastapi.testclient import TestClient
 
 from scripts.ot_protocol import encode_sample, decode_registers, WORDS
-from scripts.scada_collector import Historian, poll_once
+from scripts.scada_collector import Historian, poll_once, DB_DEFAULT, LOGS_DEFAULT, DEFAULT_MAX_AGE_SECONDS
 from scripts.hmi import create_app
-from scripts.ot_gateway import load_source
+from scripts.ot_gateway import load_source, DEFAULT_SOURCE
 from pymodbus.client import AsyncModbusTcpClient
 
 
@@ -173,3 +173,27 @@ def test_jump_to_recorded_high_wind_alarm_without_inventing_event(tmp_path):
     assert any(e["source_turbine_id"] == "WT02" and e["Code"] == "144"
                and e["Detected"] == "2020-02-05 10:32:00" for e in events)
     assert any(e["Code"] == "144" for e in payload["alarms"])
+
+
+def test_full_week_replay_has_unique_source_times_without_short_loop():
+    path = Path(__file__).resolve().parents[1] / "data/raw/greek_scada_3t_2020-02-05_11.csv"
+    assert DEFAULT_SOURCE == path
+    assert LOGS_DEFAULT.name == "greek_logs_3t_2020-02-05_11.csv"
+    assert DB_DEFAULT.name == "control_room_week.sqlite"
+    assert DEFAULT_MAX_AGE_SECONDS > 10
+    groups = load_source(path)
+    assert len(groups[1]) == len(groups[2]) == len(groups[3]) == 1008
+    assert groups[1][0]["timestamp_source"] == "2020-02-05 00:00:00"
+    assert groups[1][-1]["timestamp_source"] == "2020-02-11 23:50:00"
+    assert len({x["timestamp_source"] for x in groups[1]}) == len(groups[1])
+
+
+def test_control_room_separates_source_clock_poll_clock_and_readonly_mode(tmp_path):
+    page = TestClient(create_app(tmp_path / "historian.sqlite")).get("/").text
+    for marker in ("id=\"site-overview\"", "id=\"turbine-table\"", "id=\"source-alarms\"",
+                   "id=\"communications\"", "id=\"trend\"", "id=\"playback-state\""):
+        assert marker in page
+    assert "historical replay" in page.lower()
+    assert "read-only" in page.lower()
+    assert "source_timestamp" in page and "observed_at_utc" in page
+    assert "POST /api/reset" not in page
