@@ -4,3 +4,4 @@ __pycache__/
 *.pyc
 secrets/
 tmp/
+data/external/

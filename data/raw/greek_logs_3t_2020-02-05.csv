@@ -1,0 +1,944 @@
+source_turbine_id,Code,Description,Detected,Device ack.,Reset/Run,Duration,Event type,Severity
+WT02,266,Pitch: -2.7 Power: 1411.3 kW,2020-02-05 00:25:00,,,,Operation log (O),1
+WT02,265,Wind:  9.0 m/s  Gen:1603.2 RPM,2020-02-05 00:25:00,,,,Operation log (O),1
+WT02,266,Pitch:  1.3 Power: 2964.5 kW,2020-02-05 00:55:00,,,,Operation log (O),1
+WT02,265,Wind: 14.1 m/s  Gen:1645.3 RPM,2020-02-05 00:55:00,,,,Operation log (O),1
+WT02,265,Wind: 20.5 m/s  Gen:1628.7 RPM,2020-02-05 01:25:00,,,,Operation log (O),1
+WT02,266,Pitch: 14.5 Power: 3000.1 kW,2020-02-05 01:25:00,,,,Operation log (O),1
+WT02,266,Pitch: 20.9 Power: 3002.6 kW,2020-02-05 01:55:00,,,,Operation log (O),1
+WT02,265,Wind: 24.0 m/s  Gen:1662.9 RPM,2020-02-05 01:55:00,,,,Operation log (O),1
+WT02,266,Pitch: 12.0 Power: 3001.1 kW,2020-02-05 02:25:00,,,,Operation log (O),1
+WT02,265,Wind: 18.7 m/s  Gen:1669.7 RPM,2020-02-05 02:25:00,,,,Operation log (O),1
+WT02,506,Blade bearrings lubricated,2020-02-05 02:51:00,,,,Operation log (O),1
+WT02,265,Wind: 16.1 m/s  Gen:1564.2 RPM,2020-02-05 02:55:00,,,,Operation log (O),1
+WT02,266,Pitch: 11.4 Power: 3019.8 kW,2020-02-05 02:55:00,,,,Operation log (O),1
+WT02,265,Wind: 22.8 m/s  Gen:1683.4 RPM,2020-02-05 03:25:00,,,,Operation log (O),1
+WT02,266,Pitch: 18.9 Power: 2997.8 kW,2020-02-05 03:25:00,,,,Operation log (O),1
+WT02,265,Wind: 16.3 m/s  Gen:1653.8 RPM,2020-02-05 03:55:00,,,,Operation log (O),1
+WT02,266,Pitch:  5.7 Power: 3032.9 kW,2020-02-05 03:55:00,,,,Operation log (O),1
+WT02,266,Pitch:  9.7 Power: 2999.8 kW,2020-02-05 04:25:00,,,,Operation log (O),1
+WT02,265,Wind: 16.6 m/s  Gen:1647.8 RPM,2020-02-05 04:25:00,,,,Operation log (O),1
+WT02,266,Pitch:  4.1 Power: 2927.2 kW,2020-02-05 04:55:00,,,,Operation log (O),1
+WT02,265,Wind: 14.4 m/s  Gen:1670.0 RPM,2020-02-05 04:55:00,,,,Operation log (O),1
+WT02,265,Wind: 11.1 m/s  Gen:1643.6 RPM,2020-02-05 05:25:00,,,,Operation log (O),1
+WT02,266,Pitch: -2.2 Power: 1950.9 kW,2020-02-05 05:25:00,,,,Operation log (O),1
+WT02,265,Wind: 12.4 m/s  Gen:1651.3 RPM,2020-02-05 05:55:00,,,,Operation log (O),1
+WT02,266,Pitch: -2.0 Power: 1992.3 kW,2020-02-05 05:55:00,,,,Operation log (O),1
+WT02,265,Wind:  9.1 m/s  Gen:1629.9 RPM,2020-02-05 06:25:00,,,,Operation log (O),1
+WT02,266,Pitch: -2.7 Power: 1180.7 kW,2020-02-05 06:25:00,,,,Operation log (O),1
+WT02,266,Pitch:  2.5 Power: 2524.0 kW,2020-02-05 06:55:00,,,,Operation log (O),1
+WT02,265,Wind: 14.6 m/s  Gen:1639.9 RPM,2020-02-05 06:55:00,,,,Operation log (O),1
+WT02,265,Wind: 11.9 m/s  Gen:1654.0 RPM,2020-02-05 07:25:00,,,,Operation log (O),1
+WT02,266,Pitch: -1.7 Power: 1780.9 kW,2020-02-05 07:25:00,,,,Operation log (O),1
+WT02,266,Pitch: 14.5 Power: 3001.5 kW,2020-02-05 07:55:00,,,,Operation log (O),1
+WT02,265,Wind: 19.9 m/s  Gen:1679.5 RPM,2020-02-05 07:55:00,,,,Operation log (O),1
+WT02,266,Pitch:  9.4 Power: 2833.7 kW,2020-02-05 08:25:00,,,,Operation log (O),1
+WT02,265,Wind: 17.5 m/s  Gen:1534.8 RPM,2020-02-05 08:25:00,,,,Operation log (O),1
+WT02,265,Wind: 20.9 m/s  Gen:1617.3 RPM,2020-02-05 08:55:00,,,,Operation log (O),1
+WT02,266,Pitch: 15.8 Power: 3000.4 kW,2020-02-05 08:55:00,,,,Operation log (O),1
+WT02,265,Wind: 17.9 m/s  Gen:1644.9 RPM,2020-02-05 09:25:00,,,,Operation log (O),1
+WT02,266,Pitch: 13.2 Power: 3000.0 kW,2020-02-05 09:25:00,,,,Operation log (O),1
+WT02,265,Wind: 13.3 m/s  Gen:1614.3 RPM,2020-02-05 09:55:00,,,,Operation log (O),1
+WT02,266,Pitch:  2.6 Power: 2692.0 kW,2020-02-05 09:55:00,,,,Operation log (O),1
+WT02,265,Wind: 18.4 m/s  Gen:1648.1 RPM,2020-02-05 10:25:00,,,,Operation log (O),1
+WT02,266,Pitch: 13.8 Power: 2999.2 kW,2020-02-05 10:25:00,,,,Operation log (O),1
+WT02,224,Pause,2020-02-05 10:32:00,,,,Operation log (O),1
+WT02,221,ERROR:,2020-02-05 10:32:00,,,,Operation log (O),1
+WT02,144,High windspeed: 25.1 m/s,2020-02-05 10:32:00,,,,Operation log (O),212
+WT02,230,Auto-restart after   60 sec,2020-02-05 10:32:00,,,,Operation log (O),1
+WT02,144,High windspeed: 25.1 m/s,2020-02-05 10:32:00,2/5/2020 10:35 AM,2/5/2020 10:35 AM,0.002592593,Alarm log (A),212
+WT02,115,Generator 1 out,2020-02-05 10:32:00,,,,Operation log (O),1
+WT02,225,Run,2020-02-05 10:35:00,,,,Operation log (O),1
+WT02,114,Generator 1 in,2020-02-05 10:36:00,,,,Operation log (O),1
+WT02,221,ERROR:,2020-02-05 10:41:00,,,,Operation log (O),1
+WT02,224,Pause,2020-02-05 10:41:00,,,,Operation log (O),1
+WT02,144,High windspeed: 25.1 m/s,2020-02-05 10:41:00,,,,Operation log (O),212
+WT02,230,Auto-restart after   60 sec,2020-02-05 10:41:00,,,,Operation log (O),1
+WT02,144,High windspeed: 25.1 m/s,2020-02-05 10:41:00,2/5/2020 10:46 AM,2/5/2020 10:46 AM,0.00375,Alarm log (A),212
+WT02,115,Generator 1 out,2020-02-05 10:41:00,,,,Operation log (O),1
+WT02,225,Run,2020-02-05 10:46:00,,,,Operation log (O),1
+WT02,114,Generator 1 in,2020-02-05 10:47:00,,,,Operation log (O),1
+WT02,266,Pitch: 19.0 Power: 3001.4 kW,2020-02-05 10:55:00,,,,Operation log (O),1
+WT02,265,Wind: 21.9 m/s  Gen:1635.4 RPM,2020-02-05 10:55:00,,,,Operation log (O),1
+WT02,266,Pitch:  6.8 Power: 2722.2 kW,2020-02-05 11:25:00,,,,Operation log (O),1
+WT02,265,Wind: 16.3 m/s  Gen:1631.7 RPM,2020-02-05 11:25:00,,,,Operation log (O),1
+WT02,265,Wind: 25.1 m/s  Gen:1667.8 RPM,2020-02-05 11:55:00,,,,Operation log (O),1
+WT02,266,Pitch: 22.8 Power: 3001.2 kW,2020-02-05 11:55:00,,,,Operation log (O),1
+WT02,224,Pause,2020-02-05 12:01:00,,,,Operation log (O),1
+WT02,144,High windspeed: 25.1 m/s,2020-02-05 12:01:00,,,,Operation log (O),212
+WT02,221,ERROR:,2020-02-05 12:01:00,,,,Operation log (O),1
+WT02,230,Auto-restart after   60 sec,2020-02-05 12:01:00,,,,Operation log (O),1
+WT02,144,High windspeed: 25.1 m/s,2020-02-05 12:01:00,2/5/2020 12:10 PM,2/5/2020 12:10 PM,0:08:44,Alarm log (A),212
+WT02,115,Generator 1 out,2020-02-05 12:01:00,,,,Operation log (O),1
+WT02,225,Run,2020-02-05 12:10:00,,,,Operation log (O),1
+WT02,114,Generator 1 in,2020-02-05 12:10:00,,,,Operation log (O),1
+WT02,266,Pitch: 20.5 Power: 3000.5 kW,2020-02-05 12:25:00,,,,Operation log (O),1
+WT02,265,Wind: 21.9 m/s  Gen:1636.0 RPM,2020-02-05 12:25:00,,,,Operation log (O),1
+WT02,265,Wind: 23.2 m/s  Gen:1632.5 RPM,2020-02-05 12:55:00,,,,Operation log (O),1
+WT02,266,Pitch: 20.3 Power: 3000.8 kW,2020-02-05 12:55:00,,,,Operation log (O),1
+WT02,144,High windspeed: 25.1 m/s,2020-02-05 13:15:00,2/5/2020 1:51 PM,2/5/2020 1:51 PM,0.025231481,Alarm log (A),212
+WT02,230,Auto-restart after   60 sec,2020-02-05 13:15:00,,,,Operation log (O),1
+WT02,221,ERROR:,2020-02-05 13:15:00,,,,Operation log (O),1
+WT02,144,High windspeed: 25.1 m/s,2020-02-05 13:15:00,,,,Operation log (O),212
+WT02,224,Pause,2020-02-05 13:15:00,,,,Operation log (O),1
+WT02,115,Generator 1 out,2020-02-05 13:15:00,,,,Operation log (O),1
+WT02,266,Pitch: 78.0 Power: -014.1 kW,2020-02-05 13:25:00,,,,Operation log (O),1
+WT02,265,Wind: 21.1 m/s  Gen: 180.5 RPM,2020-02-05 13:25:00,,,,Operation log (O),1
+WT02,225,Run,2020-02-05 13:51:00,,,,Operation log (O),1
+WT02,114,Generator 1 in,2020-02-05 13:52:00,,,,Operation log (O),1
+WT02,265,Wind: 25.7 m/s  Gen:1681.0 RPM,2020-02-05 13:55:00,,,,Operation log (O),1
+WT02,266,Pitch: 23.0 Power: 3007.9 kW,2020-02-05 13:55:00,,,,Operation log (O),1
+WT02,144,High windspeed: 25.1 m/s,2020-02-05 13:56:00,,,,Operation log (O),212
+WT02,144,High windspeed: 25.1 m/s,2020-02-05 13:56:00,2/5/2020 2:20 PM,2/5/2020 2:20 PM,0.016759259,Alarm log (A),212
+WT02,221,ERROR:,2020-02-05 13:56:00,,,,Operation log (O),1
+WT02,224,Pause,2020-02-05 13:56:00,,,,Operation log (O),1
+WT02,230,Auto-restart after   60 sec,2020-02-05 13:56:00,,,,Operation log (O),1
+WT02,115,Generator 1 out,2020-02-05 13:56:00,,,,Operation log (O),1
+WT02,225,Run,2020-02-05 14:20:00,,,,Operation log (O),1
+WT02,114,Generator 1 in,2020-02-05 14:21:00,,,,Operation log (O),1
+WT02,230,Auto-restart after   60 sec,2020-02-05 14:24:00,,,,Operation log (O),1
+WT02,224,Pause,2020-02-05 14:24:00,,,,Operation log (O),1
+WT02,221,ERROR:,2020-02-05 14:24:00,,,,Operation log (O),1
+WT02,144,High windspeed: 25.1 m/s,2020-02-05 14:24:00,,,,Operation log (O),212
+WT02,144,High windspeed: 25.1 m/s,2020-02-05 14:24:00,2/5/2020 3:39 PM,2/5/2020 3:39 PM,0.051736111,Alarm log (A),212
+WT02,115,Generator 1 out,2020-02-05 14:24:00,,,,Operation log (O),1
+WT02,265,Wind: 24.7 m/s  Gen:1525.8 RPM,2020-02-05 14:25:00,,,,Operation log (O),1
+WT02,266,Pitch: 29.9 Power: 2625.9 kW,2020-02-05 14:25:00,,,,Operation log (O),1
+WT02,266,Pitch: 78.0 Power: -015.8 kW,2020-02-05 14:55:00,,,,Operation log (O),1
+WT02,265,Wind: 23.2 m/s  Gen: 200.5 RPM,2020-02-05 14:55:00,,,,Operation log (O),1
+WT02,265,Wind: 23.4 m/s  Gen: 191.7 RPM,2020-02-05 15:25:00,,,,Operation log (O),1
+WT02,266,Pitch: 78.0 Power: -016.3 kW,2020-02-05 15:25:00,,,,Operation log (O),1
+WT02,225,Run,2020-02-05 15:39:00,,,,Operation log (O),1
+WT02,114,Generator 1 in,2020-02-05 15:39:00,,,,Operation log (O),1
+WT02,224,Pause,2020-02-05 15:43:00,,,,Operation log (O),1
+WT02,230,Auto-restart after   60 sec,2020-02-05 15:43:00,,,,Operation log (O),1
+WT02,144,High windspeed: 25.1 m/s,2020-02-05 15:43:00,,,,Operation log (O),212
+WT02,144,High windspeed: 25.1 m/s,2020-02-05 15:43:00,2/5/2020 4:14 PM,2/5/2020 4:14 PM,0.021400463,Alarm log (A),212
+WT02,221,ERROR:,2020-02-05 15:43:00,,,,Operation log (O),1
+WT02,115,Generator 1 out,2020-02-05 15:43:00,,,,Operation log (O),1
+WT02,266,Pitch: 78.0 Power: -015.7 kW,2020-02-05 15:55:00,,,,Operation log (O),1
+WT02,265,Wind: 22.0 m/s  Gen: 160.0 RPM,2020-02-05 15:55:00,,,,Operation log (O),1
+WT02,225,Run,2020-02-05 16:14:00,,,,Operation log (O),1
+WT02,114,Generator 1 in,2020-02-05 16:15:00,,,,Operation log (O),1
+WT02,266,Pitch: 23.5 Power: 3001.5 kW,2020-02-05 16:25:00,,,,Operation log (O),1
+WT02,265,Wind: 26.5 m/s  Gen:1656.1 RPM,2020-02-05 16:25:00,,,,Operation log (O),1
+WT02,224,Pause,2020-02-05 16:27:00,,,,Operation log (O),1
+WT02,230,Auto-restart after   60 sec,2020-02-05 16:27:00,,,,Operation log (O),1
+WT02,221,ERROR:,2020-02-05 16:27:00,,,,Operation log (O),1
+WT02,144,High windspeed: 25.1 m/s,2020-02-05 16:27:00,,,,Operation log (O),212
+WT02,144,High windspeed: 25.1 m/s,2020-02-05 16:27:00,2/5/2020 4:46 PM,2/5/2020 4:46 PM,0:18:49,Alarm log (A),212
+WT02,115,Generator 1 out,2020-02-05 16:27:00,,,,Operation log (O),1
+WT02,225,Run,2020-02-05 16:46:00,,,,Operation log (O),1
+WT02,114,Generator 1 in,2020-02-05 16:47:00,,,,Operation log (O),1
+WT02,265,Wind: 24.0 m/s  Gen:1617.0 RPM,2020-02-05 16:55:00,,,,Operation log (O),1
+WT02,266,Pitch: 21.5 Power: 3001.5 kW,2020-02-05 16:55:00,,,,Operation log (O),1
+WT02,223,Stop,2020-02-05 17:22:00,,,,Operation log (O),1
+WT02,230,Auto-restart after   60 sec,2020-02-05 17:22:00,,,,Operation log (O),1
+WT02,221,ERROR:,2020-02-05 17:22:00,,,,Operation log (O),1
+WT02,338,Slip:-028 above limits 1,2020-02-05 17:22:00,2/5/2020 5:43 PM,2/5/2020 5:46 PM,0.01681713,Alarm log (A),233
+WT02,338,Slip:-028 above limits 1,2020-02-05 17:22:00,,,,Operation log (O),233
+WT02,221,ERROR:,2020-02-05 17:22:00,,,,Operation log (O),1
+WT02,416,EMCV.PitchC vel.: 6.4/s 53.5,2020-02-05 17:22:00,2/5/2020 5:43 PM,2/5/2020 5:46 PM,0:24:08,Alarm log (A),413
+WT02,416,EMCV.PitchC vel.: 6.4/s 53.5,2020-02-05 17:22:00,,,,Operation log (O),413
+WT02,265,Wind: 16.5 m/s  Gen:  17.3 RPM,2020-02-05 17:25:00,,,,Operation log (O),1
+WT02,266,Pitch: 89.6 Power: -005.7 kW,2020-02-05 17:25:00,,,,Operation log (O),1
+WT02,750,Remote service panel taken 0 0,2020-02-05 17:43:00,,,,System log (S),101
+WT02,236,Error 338 acknowledged manual.,2020-02-05 17:43:00,,,,Operation log (O),1
+WT02,224,Pause,2020-02-05 17:43:00,,,,Operation log (O),1
+WT02,225,Run,2020-02-05 17:46:00,,,,Operation log (O),1
+WT02,114,Generator 1 in,2020-02-05 17:47:00,,,,Operation log (O),1
+WT02,265,Wind: 21.3 m/s  Gen:1633.8 RPM,2020-02-05 17:55:00,,,,Operation log (O),1
+WT02,266,Pitch: 18.0 Power: 3001.3 kW,2020-02-05 17:55:00,,,,Operation log (O),1
+WT02,751,Remote service panel free 1 0,2020-02-05 18:01:00,,,,System log (S),101
+WT02,266,Pitch: 16.1 Power: 3001.2 kW,2020-02-05 18:25:00,,,,Operation log (O),1
+WT02,265,Wind: 20.9 m/s  Gen:1634.5 RPM,2020-02-05 18:25:00,,,,Operation log (O),1
+WT02,639,Rotor tacho ch. 2 is lost,2020-02-05 18:29:00,4/1/2020 9:16 AM,,,Warning log (W),201
+WT02,265,Wind: 16.4 m/s  Gen:1653.2 RPM,2020-02-05 18:55:00,,,,Operation log (O),1
+WT02,266,Pitch:  9.1 Power: 3018.2 kW,2020-02-05 18:55:00,,,,Operation log (O),1
+WT02,266,Pitch: 13.0 Power: 2984.9 kW,2020-02-05 19:25:00,,,,Operation log (O),1
+WT02,265,Wind: 18.8 m/s  Gen:1598.8 RPM,2020-02-05 19:25:00,,,,Operation log (O),1
+WT02,265,Wind: 22.1 m/s  Gen:1676.1 RPM,2020-02-05 19:55:00,,,,Operation log (O),1
+WT02,266,Pitch: 19.1 Power: 3000.5 kW,2020-02-05 19:55:00,,,,Operation log (O),1
+WT02,266,Pitch: 13.6 Power: 2988.9 kW,2020-02-05 20:25:00,,,,Operation log (O),1
+WT02,265,Wind: 17.4 m/s  Gen:1580.0 RPM,2020-02-05 20:25:00,,,,Operation log (O),1
+WT02,266,Pitch: 16.1 Power: 3001.9 kW,2020-02-05 20:55:00,,,,Operation log (O),1
+WT02,265,Wind: 22.0 m/s  Gen:1634.7 RPM,2020-02-05 20:55:00,,,,Operation log (O),1
+WT02,266,Pitch: 10.0 Power: 3000.8 kW,2020-02-05 21:25:00,,,,Operation log (O),1
+WT02,265,Wind: 18.5 m/s  Gen:1625.3 RPM,2020-02-05 21:25:00,,,,Operation log (O),1
+WT02,265,Wind: 19.4 m/s  Gen:1625.3 RPM,2020-02-05 21:55:00,,,,Operation log (O),1
+WT02,266,Pitch: 10.0 Power: 2999.9 kW,2020-02-05 21:55:00,,,,Operation log (O),1
+WT02,266,Pitch:  8.6 Power: 3000.2 kW,2020-02-05 22:25:00,,,,Operation log (O),1
+WT02,265,Wind: 18.1 m/s  Gen:1629.4 RPM,2020-02-05 22:25:00,,,,Operation log (O),1
+WT02,265,Wind: 16.8 m/s  Gen:1642.8 RPM,2020-02-05 22:55:00,,,,Operation log (O),1
+WT02,266,Pitch:  5.5 Power: 2990.7 kW,2020-02-05 22:55:00,,,,Operation log (O),1
+WT02,266,Pitch:  9.5 Power: 3000.7 kW,2020-02-05 23:25:00,,,,Operation log (O),1
+WT02,265,Wind: 18.5 m/s  Gen:1635.4 RPM,2020-02-05 23:25:00,,,,Operation log (O),1
+WT02,265,Wind: 17.0 m/s  Gen:1634.3 RPM,2020-02-05 23:55:00,,,,Operation log (O),1
+WT02,266,Pitch:  6.3 Power: 2929.0 kW,2020-02-05 23:55:00,,,,Operation log (O),1
+WT03,265,Wind:  9.2 m/s  Gen:1456.6 RPM,2020-02-05 00:12:00,,,,Operation log (O),1
+WT03,266,Pitch: -2.7 Power: 2672.4 kW,2020-02-05 00:12:00,,,,Operation log (O),1
+WT03,266,Pitch: -2.0 Power: 2672.4 kW,2020-02-05 00:42:00,,,,Operation log (O),1
+WT03,265,Wind: 11.3 m/s  Gen:1542.6 RPM,2020-02-05 00:42:00,,,,Operation log (O),1
+WT03,265,Wind: 15.8 m/s  Gen:1640.9 RPM,2020-02-05 01:12:00,,,,Operation log (O),1
+WT03,266,Pitch:  3.0 Power: 2672.4 kW,2020-02-05 01:12:00,,,,Operation log (O),1
+WT03,266,Pitch:  9.1 Power: 2672.4 kW,2020-02-05 01:42:00,,,,Operation log (O),1
+WT03,265,Wind: 16.4 m/s  Gen:1588.7 RPM,2020-02-05 01:42:00,,,,Operation log (O),1
+WT03,230,Auto-restart after   60 sec,2020-02-05 01:54:00,,,,Operation log (O),1
+WT03,224,Pause,2020-02-05 01:54:00,,,,Operation log (O),1
+WT03,221,ERROR:,2020-02-05 01:54:00,,,,Operation log (O),1
+WT03,144,High windspeed: 25.1 m/s,2020-02-05 01:54:00,,,,Operation log (O),212
+WT03,144,High windspeed: 25.1 m/s,2020-02-05 01:54:00,2/5/2020 2:22 AM,2/5/2020 2:22 AM,0.019074074,Alarm log (A),212
+WT03,115,Generator 1 out,2020-02-05 01:54:00,,,,Operation log (O),1
+WT03,265,Wind: 22.5 m/s  Gen: 134.1 RPM,2020-02-05 02:12:00,,,,Operation log (O),1
+WT03,266,Pitch: 78.0 Power: 2672.4 kW,2020-02-05 02:12:00,,,,Operation log (O),1
+WT03,225,Run,2020-02-05 02:22:00,,,,Operation log (O),1
+WT03,114,Generator 1 in,2020-02-05 02:22:00,,,,Operation log (O),1
+WT03,265,Wind: 20.7 m/s  Gen:1626.5 RPM,2020-02-05 02:42:00,,,,Operation log (O),1
+WT03,266,Pitch: 13.0 Power: 2672.4 kW,2020-02-05 02:42:00,,,,Operation log (O),1
+WT03,221,ERROR:,2020-02-05 03:02:00,,,,Operation log (O),1
+WT03,98,Top crash error,2020-02-05 03:02:00,2/5/2020 3:08 AM,2/5/2020 3:08 AM,0.003912037,Alarm log (A),614
+WT03,63,Power telegraph timeout,2020-02-05 03:02:00,2/5/2020 3:08 AM,2/5/2020 3:08 AM,0.003912037,Alarm log (A),234
+WT03,98,Top crash error,2020-02-05 03:02:00,,,,Operation log (O),614
+WT03,63,Power telegraph timeout,2020-02-05 03:02:00,,,,Operation log (O),234
+WT03,232,Power up after System error,2020-02-05 03:04:00,,,,Operation log (O),1
+WT03,223,Stop,2020-02-05 03:05:00,,,,Operation log (O),1
+WT03,224,Pause,2020-02-05 03:06:00,,,,Operation log (O),1
+WT03,225,Run,2020-02-05 03:08:00,,,,Operation log (O),1
+WT03,114,Generator 1 in,2020-02-05 03:09:00,,,,Operation log (O),1
+WT03,230,Auto-restart after   60 sec,2020-02-05 03:26:00,,,,Operation log (O),1
+WT03,144,High windspeed: 25.1 m/s,2020-02-05 03:26:00,,,,Operation log (O),212
+WT03,144,High windspeed: 25.1 m/s,2020-02-05 03:26:00,2/5/2020 3:31 AM,2/5/2020 3:31 AM,0.003726852,Alarm log (A),212
+WT03,221,ERROR:,2020-02-05 03:26:00,,,,Operation log (O),1
+WT03,224,Pause,2020-02-05 03:26:00,,,,Operation log (O),1
+WT03,115,Generator 1 out,2020-02-05 03:26:00,,,,Operation log (O),1
+WT03,225,Run,2020-02-05 03:31:00,,,,Operation log (O),1
+WT03,114,Generator 1 in,2020-02-05 03:32:00,,,,Operation log (O),1
+WT03,265,Wind: 19.5 m/s  Gen:1617.9 RPM,2020-02-05 03:34:00,,,,Operation log (O),1
+WT03,266,Pitch: 13.5 Power: 2994.1 kW,2020-02-05 03:34:00,,,,Operation log (O),1
+WT03,265,Wind: 20.2 m/s  Gen:1588.0 RPM,2020-02-05 04:04:00,,,,Operation log (O),1
+WT03,266,Pitch: 11.0 Power: 2999.8 kW,2020-02-05 04:04:00,,,,Operation log (O),1
+WT03,265,Wind: 19.4 m/s  Gen:1646.0 RPM,2020-02-05 04:34:00,,,,Operation log (O),1
+WT03,266,Pitch: 12.9 Power: 3001.2 kW,2020-02-05 04:34:00,,,,Operation log (O),1
+WT03,221,ERROR:,2020-02-05 04:59:00,,,,Operation log (O),1
+WT03,37,No communication with VCPM,2020-02-05 04:59:00,,,,Operation log (O),234
+WT03,37,No communication with VCPM,2020-02-05 04:59:00,2/5/2020 5:04 AM,2/5/2020 5:04 AM,0.003657407,Alarm log (A),234
+WT03,97,Ground crash error,2020-02-05 04:59:00,,,,Operation log (O),614
+WT03,97,Ground crash error,2020-02-05 04:59:00,2/5/2020 5:04 AM,2/5/2020 5:04 AM,0.003657407,Alarm log (A),614
+WT03,232,Power up after System error,2020-02-05 05:00:00,,,,Operation log (O),1
+WT03,223,Stop,2020-02-05 05:01:00,,,,Operation log (O),1
+WT03,224,Pause,2020-02-05 05:02:00,,,,Operation log (O),1
+WT03,225,Run,2020-02-05 05:04:00,,,,Operation log (O),1
+WT03,114,Generator 1 in,2020-02-05 05:04:00,,,,Operation log (O),1
+WT03,226,Power cutout,2020-02-05 05:23:00,,,,Operation log (O),101
+WT03,237,WATCHDOG was not trigged,2020-02-05 05:30:00,,,,Operation log (O),234
+WT03,221,ERROR:,2020-02-05 05:30:00,,,,Operation log (O),1
+WT03,227,Power cutin,2020-02-05 05:30:00,,,,Operation log (O),1
+WT03,237,WATCHDOG was not trigged,2020-02-05 05:30:00,2/5/2020 5:33 AM,2/5/2020 5:33 AM,0.002418981,Alarm log (A),234
+WT03,223,Stop,2020-02-05 05:31:00,,,,Operation log (O),1
+WT03,224,Pause,2020-02-05 05:31:00,,,,Operation log (O),1
+WT03,225,Run,2020-02-05 05:33:00,,,,Operation log (O),1
+WT03,114,Generator 1 in,2020-02-05 05:34:00,,,,Operation log (O),1
+WT03,905,Gen1 Speed Control Connect,2020-02-05 05:34:00,,,,Operation log (O),1
+WT03,63,Power telegraph timeout,2020-02-05 05:35:00,,,,Operation log (O),234
+WT03,63,Power telegraph timeout,2020-02-05 05:35:00,2/5/2020 5:42 AM,2/5/2020 5:42 AM,0.004490741,Alarm log (A),234
+WT03,98,Top crash error,2020-02-05 05:35:00,,,,Operation log (O),614
+WT03,98,Top crash error,2020-02-05 05:35:00,2/5/2020 5:42 AM,2/5/2020 5:42 AM,0.004490741,Alarm log (A),614
+WT03,221,ERROR:,2020-02-05 05:35:00,,,,Operation log (O),1
+WT03,232,Power up after System error,2020-02-05 05:37:00,,,,Operation log (O),1
+WT03,223,Stop,2020-02-05 05:38:00,,,,Operation log (O),1
+WT03,224,Pause,2020-02-05 05:39:00,,,,Operation log (O),1
+WT03,225,Run,2020-02-05 05:42:00,,,,Operation log (O),1
+WT03,114,Generator 1 in,2020-02-05 05:43:00,,,,Operation log (O),1
+WT03,905,Gen1 Speed Control Connect,2020-02-05 05:43:00,,,,Operation log (O),1
+WT03,97,Ground crash error,2020-02-05 05:48:00,,,,Operation log (O),614
+WT03,37,No communication with VCPM,2020-02-05 05:48:00,,,,Operation log (O),234
+WT03,221,ERROR:,2020-02-05 05:48:00,,,,Operation log (O),1
+WT03,37,No communication with VCPM,2020-02-05 05:48:00,2/5/2020 5:54 AM,2/5/2020 5:54 AM,0.003680556,Alarm log (A),234
+WT03,97,Ground crash error,2020-02-05 05:48:00,2/5/2020 5:54 AM,2/5/2020 5:54 AM,0.003680556,Alarm log (A),614
+WT03,232,Power up after System error,2020-02-05 05:50:00,,,,Operation log (O),1
+WT03,223,Stop,2020-02-05 05:51:00,,,,Operation log (O),1
+WT03,224,Pause,2020-02-05 05:52:00,,,,Operation log (O),1
+WT03,225,Run,2020-02-05 05:54:00,,,,Operation log (O),1
+WT03,114,Generator 1 in,2020-02-05 05:54:00,,,,Operation log (O),1
+WT03,221,ERROR:,2020-02-05 05:57:00,,,,Operation log (O),1
+WT03,97,Ground crash error,2020-02-05 05:57:00,,,,Operation log (O),614
+WT03,97,Ground crash error,2020-02-05 05:57:00,2/5/2020 6:03 AM,2/5/2020 6:03 AM,0.003888889,Alarm log (A),614
+WT03,37,No communication with VCPM,2020-02-05 05:57:00,,,,Operation log (O),234
+WT03,37,No communication with VCPM,2020-02-05 05:57:00,2/5/2020 6:03 AM,2/5/2020 6:03 AM,0.003888889,Alarm log (A),234
+WT03,232,Power up after System error,2020-02-05 05:59:00,,,,Operation log (O),1
+WT03,223,Stop,2020-02-05 06:00:00,,,,Operation log (O),1
+WT03,224,Pause,2020-02-05 06:00:00,,,,Operation log (O),1
+WT03,225,Run,2020-02-05 06:03:00,,,,Operation log (O),1
+WT03,114,Generator 1 in,2020-02-05 06:03:00,,,,Operation log (O),1
+WT03,221,ERROR:,2020-02-05 06:15:00,,,,Operation log (O),1
+WT03,98,Top crash error,2020-02-05 06:15:00,,,,Operation log (O),614
+WT03,98,Top crash error,2020-02-05 06:15:00,2/5/2020 6:20 AM,2/5/2020 6:20 AM,0.003634259,Alarm log (A),614
+WT03,63,Power telegraph timeout,2020-02-05 06:15:00,,,,Operation log (O),234
+WT03,63,Power telegraph timeout,2020-02-05 06:15:00,2/5/2020 6:20 AM,2/5/2020 6:20 AM,0.003634259,Alarm log (A),234
+WT03,232,Power up after System error,2020-02-05 06:17:00,,,,Operation log (O),1
+WT03,223,Stop,2020-02-05 06:18:00,,,,Operation log (O),1
+WT03,224,Pause,2020-02-05 06:18:00,,,,Operation log (O),1
+WT03,225,Run,2020-02-05 06:20:00,,,,Operation log (O),1
+WT03,114,Generator 1 in,2020-02-05 06:21:00,,,,Operation log (O),1
+WT03,266,Pitch:  0.7 Power: 2661.0 kW,2020-02-05 06:47:00,,,,Operation log (O),1
+WT03,265,Wind: 13.8 m/s  Gen:1642.1 RPM,2020-02-05 06:47:00,,,,Operation log (O),1
+WT03,221,ERROR:,2020-02-05 06:48:00,,,,Operation log (O),1
+WT03,97,Ground crash error,2020-02-05 06:48:00,,,,Operation log (O),614
+WT03,97,Ground crash error,2020-02-05 06:48:00,2/5/2020 6:53 AM,2/5/2020 6:53 AM,0.003645833,Alarm log (A),614
+WT03,37,No communication with VCPM,2020-02-05 06:48:00,,,,Operation log (O),234
+WT03,37,No communication with VCPM,2020-02-05 06:48:00,2/5/2020 6:53 AM,2/5/2020 6:53 AM,0.003645833,Alarm log (A),234
+WT03,232,Power up after System error,2020-02-05 06:50:00,,,,Operation log (O),1
+WT03,223,Stop,2020-02-05 06:51:00,,,,Operation log (O),1
+WT03,224,Pause,2020-02-05 06:51:00,,,,Operation log (O),1
+WT03,225,Run,2020-02-05 06:53:00,,,,Operation log (O),1
+WT03,114,Generator 1 in,2020-02-05 06:54:00,,,,Operation log (O),1
+WT03,305,Timeout comm. Tower acc.,2020-02-05 07:06:00,2/5/2020 7:52 PM,,,Warning log (W),201
+WT03,265,Wind: 17.2 m/s  Gen:1647.7 RPM,2020-02-05 07:20:00,,,,Operation log (O),1
+WT03,266,Pitch:  9.1 Power: 3001.5 kW,2020-02-05 07:20:00,,,,Operation log (O),1
+WT03,221,ERROR:,2020-02-05 07:34:00,,,,Operation log (O),1
+WT03,98,Top crash error,2020-02-05 07:34:00,,,,Operation log (O),614
+WT03,98,Top crash error,2020-02-05 07:34:00,2/5/2020 7:40 AM,2/5/2020 7:40 AM,0.003680556,Alarm log (A),614
+WT03,63,Power telegraph timeout,2020-02-05 07:34:00,,,,Operation log (O),234
+WT03,63,Power telegraph timeout,2020-02-05 07:34:00,2/5/2020 7:40 AM,2/5/2020 7:40 AM,0.003680556,Alarm log (A),234
+WT03,232,Power up after System error,2020-02-05 07:36:00,,,,Operation log (O),1
+WT03,223,Stop,2020-02-05 07:37:00,,,,Operation log (O),1
+WT03,224,Pause,2020-02-05 07:38:00,,,,Operation log (O),1
+WT03,225,Run,2020-02-05 07:40:00,,,,Operation log (O),1
+WT03,905,Gen1 Speed Control Connect,2020-02-05 07:40:00,,,,Operation log (O),1
+WT03,114,Generator 1 in,2020-02-05 07:40:00,,,,Operation log (O),1
+WT03,221,ERROR:,2020-02-05 07:48:00,,,,Operation log (O),1
+WT03,98,Top crash error,2020-02-05 07:48:00,,,,Operation log (O),614
+WT03,98,Top crash error,2020-02-05 07:48:00,2/5/2020 7:53 AM,2/5/2020 7:53 AM,0.003715278,Alarm log (A),614
+WT03,63,Power telegraph timeout,2020-02-05 07:48:00,,,,Operation log (O),234
+WT03,63,Power telegraph timeout,2020-02-05 07:48:00,2/5/2020 7:53 AM,2/5/2020 7:53 AM,0.003715278,Alarm log (A),234
+WT03,232,Power up after System error,2020-02-05 07:50:00,,,,Operation log (O),1
+WT03,223,Stop,2020-02-05 07:51:00,,,,Operation log (O),1
+WT03,224,Pause,2020-02-05 07:51:00,,,,Operation log (O),1
+WT03,225,Run,2020-02-05 07:53:00,,,,Operation log (O),1
+WT03,114,Generator 1 in,2020-02-05 07:54:00,,,,Operation log (O),1
+WT03,97,Ground crash error,2020-02-05 07:56:00,,,,Operation log (O),614
+WT03,97,Ground crash error,2020-02-05 07:56:00,2/5/2020 8:02 AM,2/5/2020 8:02 AM,0.003969907,Alarm log (A),614
+WT03,37,No communication with VCPM,2020-02-05 07:56:00,,,,Operation log (O),234
+WT03,37,No communication with VCPM,2020-02-05 07:56:00,2/5/2020 8:02 AM,2/5/2020 8:02 AM,0.003969907,Alarm log (A),234
+WT03,221,ERROR:,2020-02-05 07:56:00,,,,Operation log (O),1
+WT03,232,Power up after System error,2020-02-05 07:58:00,,,,Operation log (O),1
+WT03,223,Stop,2020-02-05 07:59:00,,,,Operation log (O),1
+WT03,224,Pause,2020-02-05 07:59:00,,,,Operation log (O),1
+WT03,225,Run,2020-02-05 08:02:00,,,,Operation log (O),1
+WT03,114,Generator 1 in,2020-02-05 08:02:00,,,,Operation log (O),1
+WT03,63,Power telegraph timeout,2020-02-05 08:07:00,,,,Operation log (O),234
+WT03,63,Power telegraph timeout,2020-02-05 08:07:00,2/5/2020 8:12 AM,2/5/2020 8:12 AM,0.003634259,Alarm log (A),234
+WT03,98,Top crash error,2020-02-05 08:07:00,,,,Operation log (O),614
+WT03,221,ERROR:,2020-02-05 08:07:00,,,,Operation log (O),1
+WT03,98,Top crash error,2020-02-05 08:07:00,2/5/2020 8:12 AM,2/5/2020 8:12 AM,0.003634259,Alarm log (A),614
+WT03,232,Power up after System error,2020-02-05 08:09:00,,,,Operation log (O),1
+WT03,223,Stop,2020-02-05 08:10:00,,,,Operation log (O),1
+WT03,224,Pause,2020-02-05 08:10:00,,,,Operation log (O),1
+WT03,225,Run,2020-02-05 08:12:00,,,,Operation log (O),1
+WT03,114,Generator 1 in,2020-02-05 08:13:00,,,,Operation log (O),1
+WT03,97,Ground crash error,2020-02-05 08:19:00,,,,Operation log (O),614
+WT03,37,No communication with VCPM,2020-02-05 08:19:00,,,,Operation log (O),234
+WT03,221,ERROR:,2020-02-05 08:19:00,,,,Operation log (O),1
+WT03,97,Ground crash error,2020-02-05 08:19:00,2/5/2020 9:06 AM,2/5/2020 9:09 AM,0.034386574,Alarm log (A),614
+WT03,37,No communication with VCPM,2020-02-05 08:19:00,2/5/2020 9:06 AM,2/5/2020 9:09 AM,0.034386574,Alarm log (A),234
+WT03,232,Power up after System error,2020-02-05 08:21:00,,,,Operation log (O),1
+WT03,223,Stop,2020-02-05 08:22:00,,,,Operation log (O),1
+WT03,224,Pause,2020-02-05 08:23:00,,,,Operation log (O),1
+WT03,221,ERROR:,2020-02-05 08:23:00,,,,Operation log (O),1
+WT03,222,Emergency,2020-02-05 08:23:00,,,,Operation log (O),1
+WT03,235,Error 181 ackd. over RCS,2020-02-05 09:06:00,,,,Operation log (O),1
+WT03,309,Pause over RCS C=  36,2020-02-05 09:06:00,,,,Operation log (O),1
+WT03,223,Stop,2020-02-05 09:06:00,,,,Operation log (O),1
+WT03,224,Pause,2020-02-05 09:07:00,,,,Operation log (O),1
+WT03,310,Run over RCS C=  35,2020-02-05 09:07:00,,,,Operation log (O),1
+WT03,225,Run,2020-02-05 09:09:00,,,,Operation log (O),1
+WT03,114,Generator 1 in,2020-02-05 09:10:00,,,,Operation log (O),1
+WT03,266,Pitch:  7.5 Power: 2848.6 kW,2020-02-05 09:21:00,,,,Operation log (O),1
+WT03,265,Wind: 17.5 m/s  Gen:1617.3 RPM,2020-02-05 09:21:00,,,,Operation log (O),1
+WT03,265,Wind: 19.0 m/s  Gen:1618.4 RPM,2020-02-05 09:51:00,,,,Operation log (O),1
+WT03,266,Pitch: 12.1 Power: 2999.7 kW,2020-02-05 09:51:00,,,,Operation log (O),1
+WT03,266,Pitch: 12.4 Power: 3000.1 kW,2020-02-05 10:21:00,,,,Operation log (O),1
+WT03,265,Wind: 20.2 m/s  Gen:1652.3 RPM,2020-02-05 10:21:00,,,,Operation log (O),1
+WT03,37,No communication with VCPM,2020-02-05 10:32:00,2/5/2020 10:37 AM,2/5/2020 10:37 AM,0.003703704,Alarm log (A),234
+WT03,97,Ground crash error,2020-02-05 10:32:00,2/5/2020 10:37 AM,2/5/2020 10:37 AM,0.003703704,Alarm log (A),614
+WT03,97,Ground crash error,2020-02-05 10:32:00,,,,Operation log (O),614
+WT03,37,No communication with VCPM,2020-02-05 10:32:00,,,,Operation log (O),234
+WT03,221,ERROR:,2020-02-05 10:32:00,,,,Operation log (O),1
+WT03,232,Power up after System error,2020-02-05 10:34:00,,,,Operation log (O),1
+WT03,223,Stop,2020-02-05 10:35:00,,,,Operation log (O),1
+WT03,224,Pause,2020-02-05 10:35:00,,,,Operation log (O),1
+WT03,225,Run,2020-02-05 10:37:00,,,,Operation log (O),1
+WT03,114,Generator 1 in,2020-02-05 10:38:00,,,,Operation log (O),1
+WT03,98,Top crash error,2020-02-05 10:48:00,,,,Operation log (O),614
+WT03,63,Power telegraph timeout,2020-02-05 10:48:00,,,,Operation log (O),234
+WT03,221,ERROR:,2020-02-05 10:48:00,,,,Operation log (O),1
+WT03,63,Power telegraph timeout,2020-02-05 10:48:00,2/5/2020 10:53 AM,2/5/2020 10:53 AM,0.003634259,Alarm log (A),234
+WT03,98,Top crash error,2020-02-05 10:48:00,2/5/2020 10:53 AM,2/5/2020 10:53 AM,0.003634259,Alarm log (A),614
+WT03,232,Power up after System error,2020-02-05 10:50:00,,,,Operation log (O),1
+WT03,223,Stop,2020-02-05 10:51:00,,,,Operation log (O),1
+WT03,224,Pause,2020-02-05 10:51:00,,,,Operation log (O),1
+WT03,225,Run,2020-02-05 10:53:00,,,,Operation log (O),1
+WT03,114,Generator 1 in,2020-02-05 10:54:00,,,,Operation log (O),1
+WT03,37,No communication with VCPM,2020-02-05 10:58:00,,,,Operation log (O),234
+WT03,97,Ground crash error,2020-02-05 10:58:00,,,,Operation log (O),614
+WT03,221,ERROR:,2020-02-05 10:58:00,,,,Operation log (O),1
+WT03,97,Ground crash error,2020-02-05 10:58:00,2/5/2020 11:04 AM,2/5/2020 11:04 AM,0.004606481,Alarm log (A),614
+WT03,37,No communication with VCPM,2020-02-05 10:58:00,2/5/2020 11:04 AM,2/5/2020 11:04 AM,0.004606481,Alarm log (A),234
+WT03,232,Power up after System error,2020-02-05 11:00:00,,,,Operation log (O),1
+WT03,223,Stop,2020-02-05 11:01:00,,,,Operation log (O),1
+WT03,224,Pause,2020-02-05 11:01:00,,,,Operation log (O),1
+WT03,225,Run,2020-02-05 11:04:00,,,,Operation log (O),1
+WT03,114,Generator 1 in,2020-02-05 11:05:00,,,,Operation log (O),1
+WT03,98,Top crash error,2020-02-05 11:06:00,,,,Operation log (O),614
+WT03,63,Power telegraph timeout,2020-02-05 11:06:00,,,,Operation log (O),234
+WT03,221,ERROR:,2020-02-05 11:06:00,,,,Operation log (O),1
+WT03,63,Power telegraph timeout,2020-02-05 11:06:00,2/5/2020 11:11 AM,2/5/2020 11:11 AM,0.003657407,Alarm log (A),234
+WT03,98,Top crash error,2020-02-05 11:06:00,2/5/2020 11:11 AM,2/5/2020 11:11 AM,0.003657407,Alarm log (A),614
+WT03,232,Power up after System error,2020-02-05 11:08:00,,,,Operation log (O),1
+WT03,223,Stop,2020-02-05 11:09:00,,,,Operation log (O),1
+WT03,224,Pause,2020-02-05 11:09:00,,,,Operation log (O),1
+WT03,225,Run,2020-02-05 11:11:00,,,,Operation log (O),1
+WT03,114,Generator 1 in,2020-02-05 11:12:00,,,,Operation log (O),1
+WT03,905,Gen1 Speed Control Connect,2020-02-05 11:12:00,,,,Operation log (O),1
+WT03,97,Ground crash error,2020-02-05 11:22:00,,,,Operation log (O),614
+WT03,37,No communication with VCPM,2020-02-05 11:22:00,,,,Operation log (O),234
+WT03,221,ERROR:,2020-02-05 11:22:00,,,,Operation log (O),1
+WT03,97,Ground crash error,2020-02-05 11:22:00,2/5/2020 11:28 AM,2/5/2020 11:28 AM,0.003854167,Alarm log (A),614
+WT03,37,No communication with VCPM,2020-02-05 11:22:00,2/5/2020 11:28 AM,2/5/2020 11:28 AM,0.003854167,Alarm log (A),234
+WT03,232,Power up after System error,2020-02-05 11:24:00,,,,Operation log (O),1
+WT03,223,Stop,2020-02-05 11:25:00,,,,Operation log (O),1
+WT03,224,Pause,2020-02-05 11:25:00,,,,Operation log (O),1
+WT03,225,Run,2020-02-05 11:28:00,,,,Operation log (O),1
+WT03,114,Generator 1 in,2020-02-05 11:28:00,,,,Operation log (O),1
+WT03,63,Power telegraph timeout,2020-02-05 11:31:00,,,,Operation log (O),234
+WT03,98,Top crash error,2020-02-05 11:31:00,,,,Operation log (O),614
+WT03,221,ERROR:,2020-02-05 11:31:00,,,,Operation log (O),1
+WT03,63,Power telegraph timeout,2020-02-05 11:31:00,2/5/2020 11:36 AM,2/5/2020 11:36 AM,0.003668981,Alarm log (A),234
+WT03,98,Top crash error,2020-02-05 11:31:00,2/5/2020 11:36 AM,2/5/2020 11:36 AM,0.003668981,Alarm log (A),614
+WT03,232,Power up after System error,2020-02-05 11:33:00,,,,Operation log (O),1
+WT03,223,Stop,2020-02-05 11:34:00,,,,Operation log (O),1
+WT03,224,Pause,2020-02-05 11:34:00,,,,Operation log (O),1
+WT03,225,Run,2020-02-05 11:36:00,,,,Operation log (O),1
+WT03,114,Generator 1 in,2020-02-05 11:37:00,,,,Operation log (O),1
+WT03,63,Power telegraph timeout,2020-02-05 11:44:00,,,,Operation log (O),234
+WT03,98,Top crash error,2020-02-05 11:44:00,,,,Operation log (O),614
+WT03,221,ERROR:,2020-02-05 11:44:00,,,,Operation log (O),1
+WT03,98,Top crash error,2020-02-05 11:44:00,2/5/2020 11:50 AM,2/5/2020 11:50 AM,0.00369213,Alarm log (A),614
+WT03,63,Power telegraph timeout,2020-02-05 11:44:00,2/5/2020 11:50 AM,2/5/2020 11:50 AM,0.00369213,Alarm log (A),234
+WT03,232,Power up after System error,2020-02-05 11:46:00,,,,Operation log (O),1
+WT03,223,Stop,2020-02-05 11:47:00,,,,Operation log (O),1
+WT03,224,Pause,2020-02-05 11:48:00,,,,Operation log (O),1
+WT03,225,Run,2020-02-05 11:50:00,,,,Operation log (O),1
+WT03,114,Generator 1 in,2020-02-05 11:50:00,,,,Operation log (O),1
+WT03,63,Power telegraph timeout,2020-02-05 11:52:00,,,,Operation log (O),234
+WT03,221,ERROR:,2020-02-05 11:52:00,,,,Operation log (O),1
+WT03,63,Power telegraph timeout,2020-02-05 11:52:00,2/5/2020 11:57 AM,2/5/2020 11:57 AM,0:05:20,Alarm log (A),234
+WT03,98,Top crash error,2020-02-05 11:52:00,,,,Operation log (O),614
+WT03,98,Top crash error,2020-02-05 11:52:00,2/5/2020 11:57 AM,2/5/2020 11:57 AM,0.003703704,Alarm log (A),614
+WT03,232,Power up after System error,2020-02-05 11:54:00,,,,Operation log (O),1
+WT03,223,Stop,2020-02-05 11:55:00,,,,Operation log (O),1
+WT03,224,Pause,2020-02-05 11:55:00,,,,Operation log (O),1
+WT03,225,Run,2020-02-05 11:57:00,,,,Operation log (O),1
+WT03,114,Generator 1 in,2020-02-05 11:58:00,,,,Operation log (O),1
+WT03,37,No communication with VCPM,2020-02-05 11:59:00,,,,Operation log (O),234
+WT03,37,No communication with VCPM,2020-02-05 11:59:00,2/5/2020 12:04 PM,2/5/2020 12:04 PM,0.003657407,Alarm log (A),234
+WT03,221,ERROR:,2020-02-05 11:59:00,,,,Operation log (O),1
+WT03,97,Ground crash error,2020-02-05 11:59:00,2/5/2020 12:04 PM,2/5/2020 12:04 PM,0.003657407,Alarm log (A),614
+WT03,97,Ground crash error,2020-02-05 11:59:00,,,,Operation log (O),614
+WT03,232,Power up after System error,2020-02-05 12:01:00,,,,Operation log (O),1
+WT03,223,Stop,2020-02-05 12:02:00,,,,Operation log (O),1
+WT03,224,Pause,2020-02-05 12:02:00,,,,Operation log (O),1
+WT03,225,Run,2020-02-05 12:04:00,,,,Operation log (O),1
+WT03,114,Generator 1 in,2020-02-05 12:05:00,,,,Operation log (O),1
+WT03,63,Power telegraph timeout,2020-02-05 12:21:00,,,,Operation log (O),234
+WT03,98,Top crash error,2020-02-05 12:21:00,,,,Operation log (O),614
+WT03,221,ERROR:,2020-02-05 12:21:00,,,,Operation log (O),1
+WT03,98,Top crash error,2020-02-05 12:21:00,2/5/2020 12:27 PM,2/5/2020 12:27 PM,0.004143519,Alarm log (A),614
+WT03,63,Power telegraph timeout,2020-02-05 12:21:00,2/5/2020 12:27 PM,2/5/2020 12:27 PM,0.004143519,Alarm log (A),234
+WT03,232,Power up after System error,2020-02-05 12:23:00,,,,Operation log (O),1
+WT03,223,Stop,2020-02-05 12:24:00,,,,Operation log (O),1
+WT03,224,Pause,2020-02-05 12:24:00,,,,Operation log (O),1
+WT03,225,Run,2020-02-05 12:27:00,,,,Operation log (O),1
+WT03,114,Generator 1 in,2020-02-05 12:28:00,,,,Operation log (O),1
+WT03,905,Gen1 Speed Control Connect,2020-02-05 12:28:00,,,,Operation log (O),1
+WT03,63,Power telegraph timeout,2020-02-05 12:38:00,,,,Operation log (O),234
+WT03,98,Top crash error,2020-02-05 12:38:00,,,,Operation log (O),614
+WT03,221,ERROR:,2020-02-05 12:38:00,,,,Operation log (O),1
+WT03,63,Power telegraph timeout,2020-02-05 12:38:00,2/5/2020 12:43 PM,2/5/2020 12:43 PM,0.003634259,Alarm log (A),234
+WT03,98,Top crash error,2020-02-05 12:38:00,2/5/2020 12:43 PM,2/5/2020 12:43 PM,0.003634259,Alarm log (A),614
+WT03,232,Power up after System error,2020-02-05 12:40:00,,,,Operation log (O),1
+WT03,223,Stop,2020-02-05 12:41:00,,,,Operation log (O),1
+WT03,224,Pause,2020-02-05 12:41:00,,,,Operation log (O),1
+WT03,225,Run,2020-02-05 12:43:00,,,,Operation log (O),1
+WT03,114,Generator 1 in,2020-02-05 12:44:00,,,,Operation log (O),1
+WT03,63,Power telegraph timeout,2020-02-05 12:46:00,,,,Operation log (O),234
+WT03,98,Top crash error,2020-02-05 12:46:00,,,,Operation log (O),614
+WT03,221,ERROR:,2020-02-05 12:46:00,,,,Operation log (O),1
+WT03,98,Top crash error,2020-02-05 12:46:00,2/5/2020 12:51 PM,2/5/2020 12:51 PM,0.003877315,Alarm log (A),614
+WT03,63,Power telegraph timeout,2020-02-05 12:46:00,2/5/2020 12:51 PM,2/5/2020 12:51 PM,0.003877315,Alarm log (A),234
+WT03,232,Power up after System error,2020-02-05 12:48:00,,,,Operation log (O),1
+WT03,223,Stop,2020-02-05 12:49:00,,,,Operation log (O),1
+WT03,224,Pause,2020-02-05 12:49:00,,,,Operation log (O),1
+WT03,225,Run,2020-02-05 12:51:00,,,,Operation log (O),1
+WT03,114,Generator 1 in,2020-02-05 12:52:00,,,,Operation log (O),1
+WT03,224,Pause,2020-02-05 13:08:00,,,,Operation log (O),1
+WT03,221,ERROR:,2020-02-05 13:08:00,,,,Operation log (O),1
+WT03,144,High windspeed: 25.1 m/s,2020-02-05 13:08:00,,,,Operation log (O),212
+WT03,230,Auto-restart after   60 sec,2020-02-05 13:08:00,,,,Operation log (O),1
+WT03,144,High windspeed: 25.1 m/s,2020-02-05 13:08:00,2/5/2020 1:29 PM,2/5/2020 1:29 PM,0.014467593,Alarm log (A),212
+WT03,115,Generator 1 out,2020-02-05 13:08:00,,,,Operation log (O),1
+WT03,265,Wind: 25.4 m/s  Gen: 154.5 RPM,2020-02-05 13:18:00,,,,Operation log (O),1
+WT03,266,Pitch: 78.0 Power: -012.9 kW,2020-02-05 13:18:00,,,,Operation log (O),1
+WT03,225,Run,2020-02-05 13:29:00,,,,Operation log (O),1
+WT03,114,Generator 1 in,2020-02-05 13:30:00,,,,Operation log (O),1
+WT03,97,Ground crash error,2020-02-05 13:38:00,,,,Operation log (O),614
+WT03,37,No communication with VCPM,2020-02-05 13:38:00,,,,Operation log (O),234
+WT03,37,No communication with VCPM,2020-02-05 13:38:00,2/5/2020 1:43 PM,2/5/2020 1:43 PM,0.003657407,Alarm log (A),234
+WT03,221,ERROR:,2020-02-05 13:38:00,,,,Operation log (O),1
+WT03,97,Ground crash error,2020-02-05 13:38:00,2/5/2020 1:43 PM,2/5/2020 1:43 PM,0.003657407,Alarm log (A),614
+WT03,232,Power up after System error,2020-02-05 13:40:00,,,,Operation log (O),1
+WT03,223,Stop,2020-02-05 13:41:00,,,,Operation log (O),1
+WT03,224,Pause,2020-02-05 13:41:00,,,,Operation log (O),1
+WT03,225,Run,2020-02-05 13:43:00,,,,Operation log (O),1
+WT03,114,Generator 1 in,2020-02-05 13:44:00,,,,Operation log (O),1
+WT03,97,Ground crash error,2020-02-05 13:48:00,,,,Operation log (O),614
+WT03,37,No communication with VCPM,2020-02-05 13:48:00,,,,Operation log (O),234
+WT03,37,No communication with VCPM,2020-02-05 13:48:00,2/5/2020 1:53 PM,2/5/2020 1:53 PM,0.003622685,Alarm log (A),234
+WT03,221,ERROR:,2020-02-05 13:48:00,,,,Operation log (O),1
+WT03,97,Ground crash error,2020-02-05 13:48:00,2/5/2020 1:53 PM,2/5/2020 1:53 PM,0.003622685,Alarm log (A),614
+WT03,232,Power up after System error,2020-02-05 13:49:00,,,,Operation log (O),1
+WT03,223,Stop,2020-02-05 13:50:00,,,,Operation log (O),1
+WT03,224,Pause,2020-02-05 13:51:00,,,,Operation log (O),1
+WT03,225,Run,2020-02-05 13:53:00,,,,Operation log (O),1
+WT03,114,Generator 1 in,2020-02-05 13:53:00,,,,Operation log (O),1
+WT03,98,Top crash error,2020-02-05 13:54:00,,,,Operation log (O),614
+WT03,63,Power telegraph timeout,2020-02-05 13:54:00,,,,Operation log (O),234
+WT03,63,Power telegraph timeout,2020-02-05 13:54:00,2/5/2020 2:00 PM,2/5/2020 2:00 PM,0.004236111,Alarm log (A),234
+WT03,98,Top crash error,2020-02-05 13:54:00,2/5/2020 2:00 PM,2/5/2020 2:00 PM,0.004236111,Alarm log (A),614
+WT03,221,ERROR:,2020-02-05 13:54:00,,,,Operation log (O),1
+WT03,232,Power up after System error,2020-02-05 13:56:00,,,,Operation log (O),1
+WT03,223,Stop,2020-02-05 13:57:00,,,,Operation log (O),1
+WT03,224,Pause,2020-02-05 13:57:00,,,,Operation log (O),1
+WT03,225,Run,2020-02-05 14:00:00,,,,Operation log (O),1
+WT03,114,Generator 1 in,2020-02-05 14:01:00,,,,Operation log (O),1
+WT03,37,No communication with VCPM,2020-02-05 14:01:00,,,,Operation log (O),234
+WT03,37,No communication with VCPM,2020-02-05 14:01:00,2/5/2020 2:07 PM,2/5/2020 2:07 PM,0.003657407,Alarm log (A),234
+WT03,97,Ground crash error,2020-02-05 14:01:00,,,,Operation log (O),614
+WT03,97,Ground crash error,2020-02-05 14:01:00,2/5/2020 2:07 PM,2/5/2020 2:07 PM,0.003657407,Alarm log (A),614
+WT03,221,ERROR:,2020-02-05 14:01:00,,,,Operation log (O),1
+WT03,232,Power up after System error,2020-02-05 14:03:00,,,,Operation log (O),1
+WT03,223,Stop,2020-02-05 14:04:00,,,,Operation log (O),1
+WT03,224,Pause,2020-02-05 14:04:00,,,,Operation log (O),1
+WT03,225,Run,2020-02-05 14:07:00,,,,Operation log (O),1
+WT03,114,Generator 1 in,2020-02-05 14:07:00,,,,Operation log (O),1
+WT03,63,Power telegraph timeout,2020-02-05 14:17:00,2/5/2020 2:23 PM,2/5/2020 2:23 PM,0.003611111,Alarm log (A),234
+WT03,98,Top crash error,2020-02-05 14:17:00,2/5/2020 2:23 PM,2/5/2020 2:23 PM,0.003611111,Alarm log (A),614
+WT03,221,ERROR:,2020-02-05 14:17:00,,,,Operation log (O),1
+WT03,98,Top crash error,2020-02-05 14:17:00,,,,Operation log (O),614
+WT03,63,Power telegraph timeout,2020-02-05 14:17:00,,,,Operation log (O),234
+WT03,232,Power up after System error,2020-02-05 14:19:00,,,,Operation log (O),1
+WT03,223,Stop,2020-02-05 14:20:00,,,,Operation log (O),1
+WT03,224,Pause,2020-02-05 14:20:00,,,,Operation log (O),1
+WT03,225,Run,2020-02-05 14:23:00,,,,Operation log (O),1
+WT03,114,Generator 1 in,2020-02-05 14:23:00,,,,Operation log (O),1
+WT03,224,Pause,2020-02-05 14:30:00,,,,Operation log (O),1
+WT03,221,ERROR:,2020-02-05 14:30:00,,,,Operation log (O),1
+WT03,144,High windspeed: 25.1 m/s,2020-02-05 14:30:00,2/5/2020 2:43 PM,2/5/2020 2:43 PM,0.009074074,Alarm log (A),212
+WT03,144,High windspeed: 25.1 m/s,2020-02-05 14:30:00,,,,Operation log (O),212
+WT03,230,Auto-restart after   60 sec,2020-02-05 14:30:00,,,,Operation log (O),1
+WT03,115,Generator 1 out,2020-02-05 14:30:00,,,,Operation log (O),1
+WT03,225,Run,2020-02-05 14:43:00,,,,Operation log (O),1
+WT03,114,Generator 1 in,2020-02-05 14:44:00,,,,Operation log (O),1
+WT03,221,ERROR:,2020-02-05 14:46:00,,,,Operation log (O),1
+WT03,63,Power telegraph timeout,2020-02-05 14:46:00,,,,Operation log (O),234
+WT03,63,Power telegraph timeout,2020-02-05 14:46:00,2/5/2020 2:52 PM,2/5/2020 2:52 PM,0.003668981,Alarm log (A),234
+WT03,98,Top crash error,2020-02-05 14:46:00,,,,Operation log (O),614
+WT03,98,Top crash error,2020-02-05 14:46:00,2/5/2020 2:52 PM,2/5/2020 2:52 PM,0.003668981,Alarm log (A),614
+WT03,232,Power up after System error,2020-02-05 14:48:00,,,,Operation log (O),1
+WT03,223,Stop,2020-02-05 14:49:00,,,,Operation log (O),1
+WT03,224,Pause,2020-02-05 14:50:00,,,,Operation log (O),1
+WT03,225,Run,2020-02-05 14:52:00,,,,Operation log (O),1
+WT03,114,Generator 1 in,2020-02-05 14:52:00,,,,Operation log (O),1
+WT03,230,Auto-restart after   60 sec,2020-02-05 14:55:00,,,,Operation log (O),1
+WT03,144,High windspeed: 25.1 m/s,2020-02-05 14:55:00,,,,Operation log (O),212
+WT03,144,High windspeed: 25.1 m/s,2020-02-05 14:55:00,2/5/2020 3:33 PM,2/5/2020 3:33 PM,0.025972222,Alarm log (A),212
+WT03,221,ERROR:,2020-02-05 14:55:00,,,,Operation log (O),1
+WT03,224,Pause,2020-02-05 14:55:00,,,,Operation log (O),1
+WT03,115,Generator 1 out,2020-02-05 14:56:00,,,,Operation log (O),1
+WT03,265,Wind: 14.9 m/s  Gen: 147.5 RPM,2020-02-05 15:18:00,,,,Operation log (O),1
+WT03,266,Pitch: 78.0 Power: -013.2 kW,2020-02-05 15:18:00,,,,Operation log (O),1
+WT03,225,Run,2020-02-05 15:33:00,,,,Operation log (O),1
+WT03,114,Generator 1 in,2020-02-05 15:33:00,,,,Operation log (O),1
+WT03,98,Top crash error,2020-02-05 15:34:00,,,,Operation log (O),614
+WT03,98,Top crash error,2020-02-05 15:34:00,2/5/2020 3:39 PM,2/5/2020 3:39 PM,0.003645833,Alarm log (A),614
+WT03,63,Power telegraph timeout,2020-02-05 15:34:00,,,,Operation log (O),234
+WT03,63,Power telegraph timeout,2020-02-05 15:34:00,2/5/2020 3:39 PM,2/5/2020 3:39 PM,0.003645833,Alarm log (A),234
+WT03,221,ERROR:,2020-02-05 15:34:00,,,,Operation log (O),1
+WT03,232,Power up after System error,2020-02-05 15:36:00,,,,Operation log (O),1
+WT03,223,Stop,2020-02-05 15:37:00,,,,Operation log (O),1
+WT03,224,Pause,2020-02-05 15:37:00,,,,Operation log (O),1
+WT03,225,Run,2020-02-05 15:39:00,,,,Operation log (O),1
+WT03,114,Generator 1 in,2020-02-05 15:40:00,,,,Operation log (O),1
+WT03,63,Power telegraph timeout,2020-02-05 15:42:00,,,,Operation log (O),234
+WT03,63,Power telegraph timeout,2020-02-05 15:42:00,2/5/2020 3:47 PM,2/5/2020 3:47 PM,0.003645833,Alarm log (A),234
+WT03,98,Top crash error,2020-02-05 15:42:00,,,,Operation log (O),614
+WT03,98,Top crash error,2020-02-05 15:42:00,2/5/2020 3:47 PM,2/5/2020 3:47 PM,0.003645833,Alarm log (A),614
+WT03,221,ERROR:,2020-02-05 15:42:00,,,,Operation log (O),1
+WT03,232,Power up after System error,2020-02-05 15:44:00,,,,Operation log (O),1
+WT03,223,Stop,2020-02-05 15:45:00,,,,Operation log (O),1
+WT03,224,Pause,2020-02-05 15:45:00,,,,Operation log (O),1
+WT03,225,Run,2020-02-05 15:47:00,,,,Operation log (O),1
+WT03,114,Generator 1 in,2020-02-05 15:48:00,,,,Operation log (O),1
+WT03,63,Power telegraph timeout,2020-02-05 15:49:00,,,,Operation log (O),234
+WT03,98,Top crash error,2020-02-05 15:49:00,,,,Operation log (O),614
+WT03,221,ERROR:,2020-02-05 15:49:00,,,,Operation log (O),1
+WT03,98,Top crash error,2020-02-05 15:49:00,2/5/2020 3:55 PM,2/5/2020 3:55 PM,0.003668981,Alarm log (A),614
+WT03,63,Power telegraph timeout,2020-02-05 15:49:00,2/5/2020 3:55 PM,2/5/2020 3:55 PM,0.003668981,Alarm log (A),234
+WT03,232,Power up after System error,2020-02-05 15:51:00,,,,Operation log (O),1
+WT03,223,Stop,2020-02-05 15:52:00,,,,Operation log (O),1
+WT03,224,Pause,2020-02-05 15:53:00,,,,Operation log (O),1
+WT03,225,Run,2020-02-05 15:55:00,,,,Operation log (O),1
+WT03,114,Generator 1 in,2020-02-05 15:55:00,,,,Operation log (O),1
+WT03,98,Top crash error,2020-02-05 15:56:00,,,,Operation log (O),614
+WT03,221,ERROR:,2020-02-05 15:56:00,,,,Operation log (O),1
+WT03,63,Power telegraph timeout,2020-02-05 15:56:00,,,,Operation log (O),234
+WT03,98,Top crash error,2020-02-05 15:56:00,2/5/2020 4:02 PM,2/5/2020 4:02 PM,0.004085648,Alarm log (A),614
+WT03,63,Power telegraph timeout,2020-02-05 15:56:00,2/5/2020 4:02 PM,2/5/2020 4:02 PM,0.004085648,Alarm log (A),234
+WT03,232,Power up after System error,2020-02-05 15:58:00,,,,Operation log (O),1
+WT03,223,Stop,2020-02-05 15:59:00,,,,Operation log (O),1
+WT03,224,Pause,2020-02-05 16:00:00,,,,Operation log (O),1
+WT03,225,Run,2020-02-05 16:02:00,,,,Operation log (O),1
+WT03,114,Generator 1 in,2020-02-05 16:03:00,,,,Operation log (O),1
+WT03,221,ERROR:,2020-02-05 16:09:00,,,,Operation log (O),1
+WT03,144,High windspeed: 25.1 m/s,2020-02-05 16:09:00,,,,Operation log (O),212
+WT03,224,Pause,2020-02-05 16:09:00,,,,Operation log (O),1
+WT03,230,Auto-restart after   60 sec,2020-02-05 16:09:00,,,,Operation log (O),1
+WT03,144,High windspeed: 25.1 m/s,2020-02-05 16:09:00,2/5/2020 4:44 PM,2/5/2020 4:44 PM,0.024583333,Alarm log (A),212
+WT03,115,Generator 1 out,2020-02-05 16:09:00,,,,Operation log (O),1
+WT03,265,Wind: 26.9 m/s  Gen: 165.9 RPM,2020-02-05 16:28:00,,,,Operation log (O),1
+WT03,266,Pitch: 78.0 Power: -008.9 kW,2020-02-05 16:28:00,,,,Operation log (O),1
+WT03,225,Run,2020-02-05 16:44:00,,,,Operation log (O),1
+WT03,114,Generator 1 in,2020-02-05 16:45:00,,,,Operation log (O),1
+WT03,98,Top crash error,2020-02-05 16:50:00,,,,Operation log (O),614
+WT03,98,Top crash error,2020-02-05 16:50:00,2/5/2020 4:55 PM,2/5/2020 4:55 PM,0.003657407,Alarm log (A),614
+WT03,63,Power telegraph timeout,2020-02-05 16:50:00,,,,Operation log (O),234
+WT03,63,Power telegraph timeout,2020-02-05 16:50:00,2/5/2020 4:55 PM,2/5/2020 4:55 PM,0.003657407,Alarm log (A),234
+WT03,221,ERROR:,2020-02-05 16:50:00,,,,Operation log (O),1
+WT03,232,Power up after System error,2020-02-05 16:51:00,,,,Operation log (O),1
+WT03,223,Stop,2020-02-05 16:52:00,,,,Operation log (O),1
+WT03,224,Pause,2020-02-05 16:53:00,,,,Operation log (O),1
+WT03,225,Run,2020-02-05 16:55:00,,,,Operation log (O),1
+WT03,114,Generator 1 in,2020-02-05 16:55:00,,,,Operation log (O),1
+WT03,63,Power telegraph timeout,2020-02-05 16:56:00,,,,Operation log (O),234
+WT03,63,Power telegraph timeout,2020-02-05 16:56:00,2/5/2020 5:03 PM,2/5/2020 5:03 PM,0.004606481,Alarm log (A),234
+WT03,98,Top crash error,2020-02-05 16:56:00,,,,Operation log (O),614
+WT03,98,Top crash error,2020-02-05 16:56:00,2/5/2020 5:03 PM,2/5/2020 5:03 PM,0.004606481,Alarm log (A),614
+WT03,221,ERROR:,2020-02-05 16:56:00,,,,Operation log (O),1
+WT03,232,Power up after System error,2020-02-05 16:58:00,,,,Operation log (O),1
+WT03,223,Stop,2020-02-05 16:59:00,,,,Operation log (O),1
+WT03,224,Pause,2020-02-05 16:59:00,,,,Operation log (O),1
+WT03,225,Run,2020-02-05 17:03:00,,,,Operation log (O),1
+WT03,114,Generator 1 in,2020-02-05 17:03:00,,,,Operation log (O),1
+WT03,224,Pause,2020-02-05 17:04:00,,,,Operation log (O),1
+WT03,144,High windspeed: 25.1 m/s,2020-02-05 17:04:00,,,,Operation log (O),212
+WT03,144,High windspeed: 25.1 m/s,2020-02-05 17:04:00,2/5/2020 5:17 PM,2/5/2020 5:17 PM,0.009456019,Alarm log (A),212
+WT03,221,ERROR:,2020-02-05 17:04:00,,,,Operation log (O),1
+WT03,230,Auto-restart after   60 sec,2020-02-05 17:04:00,,,,Operation log (O),1
+WT03,115,Generator 1 out,2020-02-05 17:04:00,,,,Operation log (O),1
+WT03,225,Run,2020-02-05 17:17:00,,,,Operation log (O),1
+WT03,114,Generator 1 in,2020-02-05 17:18:00,,,,Operation log (O),1
+WT03,221,ERROR:,2020-02-05 17:22:00,,,,Operation log (O),1
+WT03,98,Top crash error,2020-02-05 17:22:00,,,,Operation log (O),614
+WT03,98,Top crash error,2020-02-05 17:22:00,2/5/2020 5:33 PM,2/5/2020 5:33 PM,0.00712963,Alarm log (A),614
+WT03,63,Power telegraph timeout,2020-02-05 17:22:00,,,,Operation log (O),234
+WT03,63,Power telegraph timeout,2020-02-05 17:22:00,2/5/2020 5:33 PM,2/5/2020 5:33 PM,0.00712963,Alarm log (A),234
+WT03,232,Power up after System error,2020-02-05 17:24:00,,,,Operation log (O),1
+WT03,223,Stop,2020-02-05 17:25:00,,,,Operation log (O),1
+WT03,224,Pause,2020-02-05 17:25:00,,,,Operation log (O),1
+WT03,225,Run,2020-02-05 17:33:00,,,,Operation log (O),1
+WT03,114,Generator 1 in,2020-02-05 17:33:00,,,,Operation log (O),1
+WT03,63,Power telegraph timeout,2020-02-05 17:34:00,,,,Operation log (O),234
+WT03,63,Power telegraph timeout,2020-02-05 17:34:00,2/5/2020 5:40 PM,2/5/2020 5:40 PM,0.003981481,Alarm log (A),234
+WT03,221,ERROR:,2020-02-05 17:34:00,,,,Operation log (O),1
+WT03,98,Top crash error,2020-02-05 17:34:00,,,,Operation log (O),614
+WT03,98,Top crash error,2020-02-05 17:34:00,2/5/2020 5:40 PM,2/5/2020 5:40 PM,0.003981481,Alarm log (A),614
+WT03,232,Power up after System error,2020-02-05 17:36:00,,,,Operation log (O),1
+WT03,223,Stop,2020-02-05 17:37:00,,,,Operation log (O),1
+WT03,224,Pause,2020-02-05 17:38:00,,,,Operation log (O),1
+WT03,225,Run,2020-02-05 17:40:00,,,,Operation log (O),1
+WT03,114,Generator 1 in,2020-02-05 17:41:00,,,,Operation log (O),1
+WT03,97,Ground crash error,2020-02-05 17:42:00,,,,Operation log (O),614
+WT03,37,No communication with VCPM,2020-02-05 17:42:00,,,,Operation log (O),234
+WT03,221,ERROR:,2020-02-05 17:42:00,,,,Operation log (O),1
+WT03,37,No communication with VCPM,2020-02-05 17:42:00,2/5/2020 5:47 PM,2/5/2020 5:47 PM,0.003668981,Alarm log (A),234
+WT03,97,Ground crash error,2020-02-05 17:42:00,2/5/2020 5:47 PM,2/5/2020 5:47 PM,0.003668981,Alarm log (A),614
+WT03,232,Power up after System error,2020-02-05 17:44:00,,,,Operation log (O),1
+WT03,223,Stop,2020-02-05 17:45:00,,,,Operation log (O),1
+WT03,224,Pause,2020-02-05 17:45:00,,,,Operation log (O),1
+WT03,225,Run,2020-02-05 17:47:00,,,,Operation log (O),1
+WT03,114,Generator 1 in,2020-02-05 17:48:00,,,,Operation log (O),1
+WT03,63,Power telegraph timeout,2020-02-05 17:49:00,,,,Operation log (O),234
+WT03,63,Power telegraph timeout,2020-02-05 17:49:00,2/5/2020 5:55 PM,2/5/2020 5:55 PM,0.003900463,Alarm log (A),234
+WT03,98,Top crash error,2020-02-05 17:49:00,2/5/2020 5:55 PM,2/5/2020 5:55 PM,0.003900463,Alarm log (A),614
+WT03,221,ERROR:,2020-02-05 17:49:00,,,,Operation log (O),1
+WT03,98,Top crash error,2020-02-05 17:49:00,,,,Operation log (O),614
+WT03,232,Power up after System error,2020-02-05 17:51:00,,,,Operation log (O),1
+WT03,223,Stop,2020-02-05 17:52:00,,,,Operation log (O),1
+WT03,224,Pause,2020-02-05 17:52:00,,,,Operation log (O),1
+WT03,225,Run,2020-02-05 17:55:00,,,,Operation log (O),1
+WT03,114,Generator 1 in,2020-02-05 17:55:00,,,,Operation log (O),1
+WT03,37,No communication with VCPM,2020-02-05 17:56:00,,,,Operation log (O),234
+WT03,97,Ground crash error,2020-02-05 17:56:00,,,,Operation log (O),614
+WT03,221,ERROR:,2020-02-05 17:56:00,,,,Operation log (O),1
+WT03,37,No communication with VCPM,2020-02-05 17:56:00,2/5/2020 6:01 PM,2/5/2020 6:01 PM,0.003680556,Alarm log (A),234
+WT03,97,Ground crash error,2020-02-05 17:56:00,2/5/2020 6:01 PM,2/5/2020 6:01 PM,0.003680556,Alarm log (A),614
+WT03,232,Power up after System error,2020-02-05 17:58:00,,,,Operation log (O),1
+WT03,223,Stop,2020-02-05 17:59:00,,,,Operation log (O),1
+WT03,224,Pause,2020-02-05 17:59:00,,,,Operation log (O),1
+WT03,225,Run,2020-02-05 18:01:00,,,,Operation log (O),1
+WT03,114,Generator 1 in,2020-02-05 18:02:00,,,,Operation log (O),1
+WT03,37,No communication with VCPM,2020-02-05 18:03:00,,,,Operation log (O),234
+WT03,97,Ground crash error,2020-02-05 18:03:00,,,,Operation log (O),614
+WT03,221,ERROR:,2020-02-05 18:03:00,,,,Operation log (O),1
+WT03,37,No communication with VCPM,2020-02-05 18:03:00,2/5/2020 6:08 PM,2/5/2020 6:08 PM,0.00369213,Alarm log (A),234
+WT03,97,Ground crash error,2020-02-05 18:03:00,2/5/2020 6:08 PM,2/5/2020 6:08 PM,0.00369213,Alarm log (A),614
+WT03,232,Power up after System error,2020-02-05 18:05:00,,,,Operation log (O),1
+WT03,223,Stop,2020-02-05 18:06:00,,,,Operation log (O),1
+WT03,224,Pause,2020-02-05 18:06:00,,,,Operation log (O),1
+WT03,225,Run,2020-02-05 18:08:00,,,,Operation log (O),1
+WT03,114,Generator 1 in,2020-02-05 18:09:00,,,,Operation log (O),1
+WT03,63,Power telegraph timeout,2020-02-05 18:10:00,,,,Operation log (O),234
+WT03,63,Power telegraph timeout,2020-02-05 18:10:00,2/5/2020 6:15 PM,2/5/2020 6:15 PM,0.003680556,Alarm log (A),234
+WT03,98,Top crash error,2020-02-05 18:10:00,,,,Operation log (O),614
+WT03,98,Top crash error,2020-02-05 18:10:00,2/5/2020 6:15 PM,2/5/2020 6:15 PM,0.003680556,Alarm log (A),614
+WT03,221,ERROR:,2020-02-05 18:10:00,,,,Operation log (O),1
+WT03,232,Power up after System error,2020-02-05 18:12:00,,,,Operation log (O),1
+WT03,223,Stop,2020-02-05 18:13:00,,,,Operation log (O),1
+WT03,224,Pause,2020-02-05 18:13:00,,,,Operation log (O),1
+WT03,225,Run,2020-02-05 18:15:00,,,,Operation log (O),1
+WT03,905,Gen1 Speed Control Connect,2020-02-05 18:16:00,,,,Operation log (O),1
+WT03,114,Generator 1 in,2020-02-05 18:16:00,,,,Operation log (O),1
+WT03,98,Top crash error,2020-02-05 18:17:00,,,,Operation log (O),614
+WT03,98,Top crash error,2020-02-05 18:17:00,2/5/2020 6:22 PM,2/5/2020 6:22 PM,0.003668981,Alarm log (A),614
+WT03,63,Power telegraph timeout,2020-02-05 18:17:00,,,,Operation log (O),234
+WT03,63,Power telegraph timeout,2020-02-05 18:17:00,2/5/2020 6:22 PM,2/5/2020 6:22 PM,0.003668981,Alarm log (A),234
+WT03,221,ERROR:,2020-02-05 18:17:00,,,,Operation log (O),1
+WT03,232,Power up after System error,2020-02-05 18:19:00,,,,Operation log (O),1
+WT03,223,Stop,2020-02-05 18:20:00,,,,Operation log (O),1
+WT03,224,Pause,2020-02-05 18:20:00,,,,Operation log (O),1
+WT03,225,Run,2020-02-05 18:22:00,,,,Operation log (O),1
+WT03,221,ERROR:,2020-02-05 18:22:00,,,,Operation log (O),1
+WT03,63,Power telegraph timeout,2020-02-05 18:22:00,,,,Operation log (O),234
+WT03,63,Power telegraph timeout,2020-02-05 18:22:00,2/5/2020 6:28 PM,2/5/2020 6:28 PM,0.003680556,Alarm log (A),234
+WT03,98,Top crash error,2020-02-05 18:22:00,,,,Operation log (O),614
+WT03,98,Top crash error,2020-02-05 18:22:00,2/5/2020 6:28 PM,2/5/2020 6:28 PM,0.003680556,Alarm log (A),614
+WT03,232,Power up after System error,2020-02-05 18:24:00,,,,Operation log (O),1
+WT03,223,Stop,2020-02-05 18:25:00,,,,Operation log (O),1
+WT03,224,Pause,2020-02-05 18:26:00,,,,Operation log (O),1
+WT03,225,Run,2020-02-05 18:28:00,,,,Operation log (O),1
+WT03,114,Generator 1 in,2020-02-05 18:28:00,,,,Operation log (O),1
+WT03,905,Gen1 Speed Control Connect,2020-02-05 18:28:00,,,,Operation log (O),1
+WT03,37,No communication with VCPM,2020-02-05 18:29:00,,,,Operation log (O),234
+WT03,37,No communication with VCPM,2020-02-05 18:29:00,2/5/2020 6:34 PM,2/5/2020 6:34 PM,0.003680556,Alarm log (A),234
+WT03,221,ERROR:,2020-02-05 18:29:00,,,,Operation log (O),1
+WT03,97,Ground crash error,2020-02-05 18:29:00,,,,Operation log (O),614
+WT03,97,Ground crash error,2020-02-05 18:29:00,2/5/2020 6:34 PM,2/5/2020 6:34 PM,0.003680556,Alarm log (A),614
+WT03,232,Power up after System error,2020-02-05 18:31:00,,,,Operation log (O),1
+WT03,223,Stop,2020-02-05 18:32:00,,,,Operation log (O),1
+WT03,224,Pause,2020-02-05 18:32:00,,,,Operation log (O),1
+WT03,225,Run,2020-02-05 18:34:00,,,,Operation log (O),1
+WT03,114,Generator 1 in,2020-02-05 18:35:00,,,,Operation log (O),1
+WT03,37,No communication with VCPM,2020-02-05 18:38:00,,,,Operation log (O),234
+WT03,37,No communication with VCPM,2020-02-05 18:38:00,2/5/2020 6:46 PM,2/5/2020 6:46 PM,0.006180556,Alarm log (A),234
+WT03,97,Ground crash error,2020-02-05 18:38:00,2/5/2020 6:46 PM,2/5/2020 6:46 PM,0.006180556,Alarm log (A),614
+WT03,221,ERROR:,2020-02-05 18:38:00,,,,Operation log (O),1
+WT03,97,Ground crash error,2020-02-05 18:38:00,,,,Operation log (O),614
+WT03,232,Power up after System error,2020-02-05 18:39:00,,,,Operation log (O),1
+WT03,223,Stop,2020-02-05 18:40:00,,,,Operation log (O),1
+WT03,224,Pause,2020-02-05 18:41:00,,,,Operation log (O),1
+WT03,225,Run,2020-02-05 18:46:00,,,,Operation log (O),1
+WT03,114,Generator 1 in,2020-02-05 18:47:00,,,,Operation log (O),1
+WT03,37,No communication with VCPM,2020-02-05 18:48:00,,,,Operation log (O),234
+WT03,221,ERROR:,2020-02-05 18:48:00,,,,Operation log (O),1
+WT03,97,Ground crash error,2020-02-05 18:48:00,,,,Operation log (O),614
+WT03,37,No communication with VCPM,2020-02-05 18:48:00,2/5/2020 6:53 PM,2/5/2020 6:53 PM,0.003877315,Alarm log (A),234
+WT03,97,Ground crash error,2020-02-05 18:48:00,2/5/2020 6:53 PM,2/5/2020 6:53 PM,0.003877315,Alarm log (A),614
+WT03,232,Power up after System error,2020-02-05 18:50:00,,,,Operation log (O),1
+WT03,223,Stop,2020-02-05 18:51:00,,,,Operation log (O),1
+WT03,224,Pause,2020-02-05 18:51:00,,,,Operation log (O),1
+WT03,225,Run,2020-02-05 18:53:00,,,,Operation log (O),1
+WT03,114,Generator 1 in,2020-02-05 18:54:00,,,,Operation log (O),1
+WT03,37,No communication with VCPM,2020-02-05 18:57:00,2/5/2020 7:06 PM,2/5/2020 7:06 PM,0.006157407,Alarm log (A),234
+WT03,37,No communication with VCPM,2020-02-05 18:57:00,,,,Operation log (O),234
+WT03,97,Ground crash error,2020-02-05 18:57:00,2/5/2020 7:06 PM,2/5/2020 7:06 PM,0.006157407,Alarm log (A),614
+WT03,221,ERROR:,2020-02-05 18:57:00,,,,Operation log (O),1
+WT03,97,Ground crash error,2020-02-05 18:57:00,,,,Operation log (O),614
+WT03,232,Power up after System error,2020-02-05 18:59:00,,,,Operation log (O),1
+WT03,223,Stop,2020-02-05 19:00:00,,,,Operation log (O),1
+WT03,224,Pause,2020-02-05 19:00:00,,,,Operation log (O),1
+WT03,225,Run,2020-02-05 19:06:00,,,,Operation log (O),1
+WT03,114,Generator 1 in,2020-02-05 19:07:00,,,,Operation log (O),1
+WT03,221,ERROR:,2020-02-05 19:11:00,,,,Operation log (O),1
+WT03,63,Power telegraph timeout,2020-02-05 19:11:00,,,,Operation log (O),234
+WT03,98,Top crash error,2020-02-05 19:11:00,,,,Operation log (O),614
+WT03,63,Power telegraph timeout,2020-02-05 19:11:00,2/5/2020 7:22 PM,2/5/2020 7:22 PM,0.007349537,Alarm log (A),234
+WT03,98,Top crash error,2020-02-05 19:11:00,2/5/2020 7:22 PM,2/5/2020 7:22 PM,0.007349537,Alarm log (A),614
+WT03,232,Power up after System error,2020-02-05 19:13:00,,,,Operation log (O),1
+WT03,223,Stop,2020-02-05 19:14:00,,,,Operation log (O),1
+WT03,224,Pause,2020-02-05 19:14:00,,,,Operation log (O),1
+WT03,225,Run,2020-02-05 19:22:00,,,,Operation log (O),1
+WT03,114,Generator 1 in,2020-02-05 19:22:00,,,,Operation log (O),1
+WT03,98,Top crash error,2020-02-05 19:31:00,,,,Operation log (O),614
+WT03,98,Top crash error,2020-02-05 19:31:00,2/5/2020 7:44 PM,2/5/2020 7:44 PM,0.008680556,Alarm log (A),614
+WT03,63,Power telegraph timeout,2020-02-05 19:31:00,,,,Operation log (O),234
+WT03,63,Power telegraph timeout,2020-02-05 19:31:00,2/5/2020 7:44 PM,2/5/2020 7:44 PM,0.008680556,Alarm log (A),234
+WT03,221,ERROR:,2020-02-05 19:31:00,,,,Operation log (O),1
+WT03,232,Power up after System error,2020-02-05 19:33:00,,,,Operation log (O),1
+WT03,223,Stop,2020-02-05 19:34:00,,,,Operation log (O),1
+WT03,224,Pause,2020-02-05 19:34:00,,,,Operation log (O),1
+WT03,225,Run,2020-02-05 19:44:00,,,,Operation log (O),1
+WT03,114,Generator 1 in,2020-02-05 19:44:00,,,,Operation log (O),1
+WT03,221,ERROR:,2020-02-05 19:48:00,,,,Operation log (O),1
+WT03,63,Power telegraph timeout,2020-02-05 19:48:00,,,,Operation log (O),234
+WT03,63,Power telegraph timeout,2020-02-05 19:48:00,2/5/2020 7:57 PM,2/5/2020 7:57 PM,0.006215278,Alarm log (A),234
+WT03,98,Top crash error,2020-02-05 19:48:00,,,,Operation log (O),614
+WT03,98,Top crash error,2020-02-05 19:48:00,2/5/2020 7:57 PM,2/5/2020 7:57 PM,0.006215278,Alarm log (A),614
+WT03,232,Power up after System error,2020-02-05 19:50:00,,,,Operation log (O),1
+WT03,223,Stop,2020-02-05 19:51:00,,,,Operation log (O),1
+WT03,224,Pause,2020-02-05 19:51:00,,,,Operation log (O),1
+WT03,723,Loadsensor A error,2020-02-05 19:52:00,2/6/2020 4:49 PM,,,Warning log (W),201
+WT03,818,Load sensor not calibrated,2020-02-05 19:52:00,2/6/2020 4:49 PM,,,Warning log (W),201
+WT03,725,Loadsensor C error,2020-02-05 19:52:00,2/6/2020 4:49 PM,,,Warning log (W),201
+WT03,724,Loadsensor B error,2020-02-05 19:52:00,2/6/2020 4:49 PM,,,Warning log (W),201
+WT03,225,Run,2020-02-05 19:57:00,,,,Operation log (O),1
+WT03,114,Generator 1 in,2020-02-05 19:58:00,,,,Operation log (O),1
+WT03,221,ERROR:,2020-02-05 19:59:00,,,,Operation log (O),1
+WT03,63,Power telegraph timeout,2020-02-05 19:59:00,,,,Operation log (O),234
+WT03,63,Power telegraph timeout,2020-02-05 19:59:00,2/5/2020 8:04 PM,2/5/2020 8:04 PM,0.003888889,Alarm log (A),234
+WT03,98,Top crash error,2020-02-05 19:59:00,,,,Operation log (O),614
+WT03,98,Top crash error,2020-02-05 19:59:00,2/5/2020 8:04 PM,2/5/2020 8:04 PM,0.003888889,Alarm log (A),614
+WT03,232,Power up after System error,2020-02-05 20:01:00,,,,Operation log (O),1
+WT03,923,Gen. slipring heater:  0C,2020-02-05 20:02:00,2/6/2020 4:49 PM,,,Warning log (W),201
+WT03,223,Stop,2020-02-05 20:02:00,,,,Operation log (O),1
+WT03,224,Pause,2020-02-05 20:02:00,,,,Operation log (O),1
+WT03,225,Run,2020-02-05 20:04:00,,,,Operation log (O),1
+WT03,114,Generator 1 in,2020-02-05 20:05:00,,,,Operation log (O),1
+WT03,98,Top crash error,2020-02-05 20:07:00,,,,Operation log (O),614
+WT03,98,Top crash error,2020-02-05 20:07:00,2/5/2020 8:10 PM,2/5/2020 8:15 PM,0.005462963,Alarm log (A),614
+WT03,63,Power telegraph timeout,2020-02-05 20:07:00,,,,Operation log (O),234
+WT03,63,Power telegraph timeout,2020-02-05 20:07:00,2/5/2020 8:10 PM,2/5/2020 8:15 PM,0.005462963,Alarm log (A),234
+WT03,221,ERROR:,2020-02-05 20:07:00,,,,Operation log (O),1
+WT03,232,Power up after System error,2020-02-05 20:09:00,,,,Operation log (O),1
+WT03,235,Error 878 ackd. over RCS,2020-02-05 20:10:00,,,,Operation log (O),1
+WT03,223,Stop,2020-02-05 20:10:00,,,,Operation log (O),1
+WT03,224,Pause,2020-02-05 20:10:00,,,,Operation log (O),1
+WT03,225,Run,2020-02-05 20:15:00,,,,Operation log (O),1
+WT03,114,Generator 1 in,2020-02-05 20:15:00,,,,Operation log (O),1
+WT03,98,Top crash error,2020-02-05 20:18:00,2/5/2020 8:23 PM,2/5/2020 8:23 PM,0.003668981,Alarm log (A),614
+WT03,63,Power telegraph timeout,2020-02-05 20:18:00,2/5/2020 8:23 PM,2/5/2020 8:23 PM,0.003668981,Alarm log (A),234
+WT03,98,Top crash error,2020-02-05 20:18:00,,,,Operation log (O),614
+WT03,221,ERROR:,2020-02-05 20:18:00,,,,Operation log (O),1
+WT03,63,Power telegraph timeout,2020-02-05 20:18:00,,,,Operation log (O),234
+WT03,232,Power up after System error,2020-02-05 20:20:00,,,,Operation log (O),1
+WT03,223,Stop,2020-02-05 20:21:00,,,,Operation log (O),1
+WT03,224,Pause,2020-02-05 20:21:00,,,,Operation log (O),1
+WT03,225,Run,2020-02-05 20:23:00,,,,Operation log (O),1
+WT03,114,Generator 1 in,2020-02-05 20:24:00,,,,Operation log (O),1
+WT03,221,ERROR:,2020-02-05 20:27:00,,,,Operation log (O),1
+WT03,37,No communication with VCPM,2020-02-05 20:27:00,,,,Operation log (O),234
+WT03,97,Ground crash error,2020-02-05 20:27:00,,,,Operation log (O),614
+WT03,37,No communication with VCPM,2020-02-05 20:27:00,2/5/2020 8:32 PM,2/5/2020 8:32 PM,0.003622685,Alarm log (A),234
+WT03,97,Ground crash error,2020-02-05 20:27:00,2/5/2020 8:32 PM,2/5/2020 8:32 PM,0.003622685,Alarm log (A),614
+WT03,232,Power up after System error,2020-02-05 20:29:00,,,,Operation log (O),1
+WT03,223,Stop,2020-02-05 20:30:00,,,,Operation log (O),1
+WT03,224,Pause,2020-02-05 20:30:00,,,,Operation log (O),1
+WT03,225,Run,2020-02-05 20:32:00,,,,Operation log (O),1
+WT03,114,Generator 1 in,2020-02-05 20:33:00,,,,Operation log (O),1
+WT03,221,ERROR:,2020-02-05 20:34:00,,,,Operation log (O),1
+WT03,37,No communication with VCPM,2020-02-05 20:34:00,,,,Operation log (O),234
+WT03,37,No communication with VCPM,2020-02-05 20:34:00,2/5/2020 8:40 PM,2/5/2020 8:40 PM,0.003865741,Alarm log (A),234
+WT03,97,Ground crash error,2020-02-05 20:34:00,,,,Operation log (O),614
+WT03,97,Ground crash error,2020-02-05 20:34:00,2/5/2020 8:40 PM,2/5/2020 8:40 PM,0.003865741,Alarm log (A),614
+WT03,232,Power up after System error,2020-02-05 20:36:00,,,,Operation log (O),1
+WT03,223,Stop,2020-02-05 20:37:00,,,,Operation log (O),1
+WT03,224,Pause,2020-02-05 20:37:00,,,,Operation log (O),1
+WT03,225,Run,2020-02-05 20:40:00,,,,Operation log (O),1
+WT03,114,Generator 1 in,2020-02-05 20:40:00,,,,Operation log (O),1
+WT03,98,Top crash error,2020-02-05 20:47:00,,,,Operation log (O),614
+WT03,63,Power telegraph timeout,2020-02-05 20:47:00,,,,Operation log (O),234
+WT03,221,ERROR:,2020-02-05 20:47:00,,,,Operation log (O),1
+WT03,98,Top crash error,2020-02-05 20:47:00,2/5/2020 8:52 PM,2/5/2020 8:52 PM,0.003645833,Alarm log (A),614
+WT03,63,Power telegraph timeout,2020-02-05 20:47:00,2/5/2020 8:52 PM,2/5/2020 8:52 PM,0.003645833,Alarm log (A),234
+WT03,232,Power up after System error,2020-02-05 20:48:00,,,,Operation log (O),1
+WT03,223,Stop,2020-02-05 20:49:00,,,,Operation log (O),1
+WT03,224,Pause,2020-02-05 20:50:00,,,,Operation log (O),1
+WT03,225,Run,2020-02-05 20:52:00,,,,Operation log (O),1
+WT03,114,Generator 1 in,2020-02-05 20:52:00,,,,Operation log (O),1
+WT03,97,Ground crash error,2020-02-05 20:53:00,,,,Operation log (O),614
+WT03,37,No communication with VCPM,2020-02-05 20:53:00,,,,Operation log (O),234
+WT03,221,ERROR:,2020-02-05 20:53:00,,,,Operation log (O),1
+WT03,97,Ground crash error,2020-02-05 20:53:00,2/5/2020 8:59 PM,2/5/2020 8:59 PM,0.003877315,Alarm log (A),614
+WT03,37,No communication with VCPM,2020-02-05 20:53:00,2/5/2020 8:59 PM,2/5/2020 8:59 PM,0.003877315,Alarm log (A),234
+WT03,232,Power up after System error,2020-02-05 20:55:00,,,,Operation log (O),1
+WT03,223,Stop,2020-02-05 20:56:00,,,,Operation log (O),1
+WT03,224,Pause,2020-02-05 20:57:00,,,,Operation log (O),1
+WT03,225,Run,2020-02-05 20:59:00,,,,Operation log (O),1
+WT03,114,Generator 1 in,2020-02-05 20:59:00,,,,Operation log (O),1
+WT03,63,Power telegraph timeout,2020-02-05 21:00:00,,,,Operation log (O),234
+WT03,98,Top crash error,2020-02-05 21:00:00,,,,Operation log (O),614
+WT03,221,ERROR:,2020-02-05 21:00:00,,,,Operation log (O),1
+WT03,98,Top crash error,2020-02-05 21:00:00,2/5/2020 9:05 PM,2/5/2020 9:05 PM,0.003912037,Alarm log (A),614
+WT03,63,Power telegraph timeout,2020-02-05 21:00:00,2/5/2020 9:05 PM,2/5/2020 9:05 PM,0.003912037,Alarm log (A),234
+WT03,232,Power up after System error,2020-02-05 21:02:00,,,,Operation log (O),1
+WT03,223,Stop,2020-02-05 21:03:00,,,,Operation log (O),1
+WT03,224,Pause,2020-02-05 21:03:00,,,,Operation log (O),1
+WT03,225,Run,2020-02-05 21:05:00,,,,Operation log (O),1
+WT03,905,Gen1 Speed Control Connect,2020-02-05 21:06:00,,,,Operation log (O),1
+WT03,114,Generator 1 in,2020-02-05 21:06:00,,,,Operation log (O),1
+WT03,63,Power telegraph timeout,2020-02-05 21:08:00,,,,Operation log (O),234
+WT03,63,Power telegraph timeout,2020-02-05 21:08:00,2/5/2020 9:13 PM,2/5/2020 9:13 PM,0.003680556,Alarm log (A),234
+WT03,98,Top crash error,2020-02-05 21:08:00,,,,Operation log (O),614
+WT03,98,Top crash error,2020-02-05 21:08:00,2/5/2020 9:13 PM,2/5/2020 9:13 PM,0.003680556,Alarm log (A),614
+WT03,221,ERROR:,2020-02-05 21:08:00,,,,Operation log (O),1
+WT03,232,Power up after System error,2020-02-05 21:10:00,,,,Operation log (O),1
+WT03,223,Stop,2020-02-05 21:11:00,,,,Operation log (O),1
+WT03,224,Pause,2020-02-05 21:11:00,,,,Operation log (O),1
+WT03,225,Run,2020-02-05 21:13:00,,,,Operation log (O),1
+WT03,905,Gen1 Speed Control Connect,2020-02-05 21:14:00,,,,Operation log (O),1
+WT03,114,Generator 1 in,2020-02-05 21:14:00,,,,Operation log (O),1
+WT03,98,Top crash error,2020-02-05 21:14:00,,,,Operation log (O),614
+WT03,98,Top crash error,2020-02-05 21:14:00,2/5/2020 9:19 PM,2/5/2020 9:19 PM,0.003645833,Alarm log (A),614
+WT03,221,ERROR:,2020-02-05 21:14:00,,,,Operation log (O),1
+WT03,63,Power telegraph timeout,2020-02-05 21:14:00,,,,Operation log (O),234
+WT03,63,Power telegraph timeout,2020-02-05 21:14:00,2/5/2020 9:19 PM,2/5/2020 9:19 PM,0.003645833,Alarm log (A),234
+WT03,232,Power up after System error,2020-02-05 21:16:00,,,,Operation log (O),1
+WT03,223,Stop,2020-02-05 21:17:00,,,,Operation log (O),1
+WT03,224,Pause,2020-02-05 21:17:00,,,,Operation log (O),1
+WT03,225,Run,2020-02-05 21:19:00,,,,Operation log (O),1
+WT03,114,Generator 1 in,2020-02-05 21:20:00,,,,Operation log (O),1
+WT03,905,Gen1 Speed Control Connect,2020-02-05 21:20:00,,,,Operation log (O),1
+WT03,37,No communication with VCPM,2020-02-05 21:21:00,,,,Operation log (O),234
+WT03,37,No communication with VCPM,2020-02-05 21:21:00,2/5/2020 9:42 PM,2/5/2020 9:42 PM,0.014537037,Alarm log (A),234
+WT03,221,ERROR:,2020-02-05 21:21:00,,,,Operation log (O),1
+WT03,97,Ground crash error,2020-02-05 21:21:00,,,,Operation log (O),614
+WT03,97,Ground crash error,2020-02-05 21:21:00,2/5/2020 9:42 PM,2/5/2020 9:42 PM,0.014537037,Alarm log (A),614
+WT03,232,Power up after System error,2020-02-05 21:22:00,,,,Operation log (O),1
+WT03,223,Stop,2020-02-05 21:23:00,,,,Operation log (O),1
+WT03,224,Pause,2020-02-05 21:24:00,,,,Operation log (O),1
+WT03,750,Remote service panel taken 0 0,2020-02-05 21:25:00,,,,System log (S),101
+WT03,282,Yawing manually stopped,2020-02-05 21:40:00,,,,Operation log (O),1
+WT03,751,Remote service panel free 0 0,2020-02-05 21:41:00,,,,System log (S),101
+WT03,225,Run,2020-02-05 21:42:00,,,,Operation log (O),1
+WT03,114,Generator 1 in,2020-02-05 21:42:00,,,,Operation log (O),1
+WT03,63,Power telegraph timeout,2020-02-05 21:43:00,,,,Operation log (O),234
+WT03,63,Power telegraph timeout,2020-02-05 21:43:00,2/6/2020 12:52 PM,2/6/2020 1:12 PM,0.645358796,Alarm log (A),234
+WT03,98,Top crash error,2020-02-05 21:43:00,,,,Operation log (O),614
+WT03,98,Top crash error,2020-02-05 21:43:00,2/6/2020 12:52 PM,2/6/2020 1:12 PM,0.645358796,Alarm log (A),614
+WT03,221,ERROR:,2020-02-05 21:43:00,,,,Operation log (O),1
+WT03,232,Power up after System error,2020-02-05 21:45:00,,,,Operation log (O),1
+WT03,223,Stop,2020-02-05 21:46:00,,,,Operation log (O),1
+WT03,224,Pause,2020-02-05 21:46:00,,,,Operation log (O),1
+WT03,750,Remote service panel taken 0 0,2020-02-05 21:48:00,,,,System log (S),101
+WT03,223,Stop,2020-02-05 22:03:00,,,,Operation log (O),1
+WT03,222,Emergency,2020-02-05 22:03:00,,,,Operation log (O),1
+WT03,751,Remote service panel free 0 0,2020-02-05 22:06:00,,,,System log (S),101
