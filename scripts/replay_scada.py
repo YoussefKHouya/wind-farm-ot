@@ -2,7 +2,7 @@
 
 This does NOT send commands to a turbine or change recorded power. Published
 SCADA bearing temperature is not an independent safety sensor. Trip setpoint
-is an illustrative project value, not the source wind farm's equipment setting.
+is an illustrative value, not the source wind farm's equipment setting.
 """
 
 import argparse
@@ -40,7 +40,7 @@ def replay_scada(records: list[dict]) -> list[dict]:
                 temp = float(raw_temp) if raw_temp not in ("", None) else None
             except (ValueError, TypeError):
                 temp = None
-            # The generic project safety process uses T01-T03 identifiers. This is
+            # The generic simulated safety process uses T01-T03 identifiers. This is
             # only a replay mapping; it is not a link to the Greek farm controls.
             decision = safety.sample("T" + turbine_id[2:], temp)
             annotated[index] = {

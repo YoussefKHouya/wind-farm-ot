@@ -1,7 +1,7 @@
 """Read-only operator HMI; serves only historian observations and source events.
 
 No direct plant truth, safety reset, control commands, or synthetic attack button.
-Bind to loopback by default; this is a local project interface, not authenticated OT.
+Bind to loopback by default; this is a local interface, not authenticated OT.
 """
 import argparse
 
