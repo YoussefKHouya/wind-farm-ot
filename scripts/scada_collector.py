@@ -117,6 +117,10 @@ class Historian:
             if prior:
                 if prior != len(rows):
                     raise ValueError("historian source events differ from input file")
+                stored = [json.loads(r[0]) for r in
+                          self.conn.execute("SELECT payload FROM source_events ORDER BY id")]
+                if stored != rows:
+                    raise ValueError("historian source events differ from input file")
                 return 0
             for index, row in enumerate(rows, 1):
                 if row["source_turbine_id"] not in IDS.values() or not row["Detected"]:

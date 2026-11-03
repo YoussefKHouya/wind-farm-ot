@@ -2,6 +2,7 @@
 import asyncio
 import csv
 from datetime import datetime, timezone
+import json
 import os
 from pathlib import Path
 import select
@@ -173,6 +174,49 @@ def test_jump_to_recorded_high_wind_alarm_without_inventing_event(tmp_path):
     assert any(e["source_turbine_id"] == "WT02" and e["Code"] == "144"
                and e["Detected"] == "2020-02-05 10:32:00" for e in events)
     assert any(e["Code"] == "144" for e in payload["alarms"])
+
+
+def _make_source_csv(tmp_path, rows, name="events.csv"):
+    path = tmp_path / name
+    if rows:
+        fieldnames = list(rows[0].keys())
+        with path.open("w", newline="", encoding="utf-8") as fh:
+            writer = csv.DictWriter(fh, fieldnames=fieldnames)
+            writer.writeheader()
+            writer.writerows(rows)
+    return path
+
+
+def _source_row(turbine="WT01", ts="2020-02-05 10:00:00", kind="Alarm log (A)", code="100"):
+    return {"source_turbine_id": turbine, "Detected": ts, "Event type": kind,
+            "Code": code, "Description": "test"}
+
+
+def test_source_event_import_rejects_same_count_different_content(tmp_path):
+    """Equal row count but changed payload must raise, not silently succeed."""
+    row_a = _source_row(code="100")
+    row_b = _source_row(code="999")  # same count, different field
+    db = Historian(tmp_path / "hist.sqlite")
+    first_import = db.import_source_events(_make_source_csv(tmp_path, [row_a], "a.csv"))
+    assert first_import == 1
+    with pytest.raises(ValueError):
+        db.import_source_events(_make_source_csv(tmp_path, [row_b], "b.csv"))
+    # existing record must be untouched
+    stored = db.conn.execute("SELECT payload FROM source_events").fetchall()
+    assert len(stored) == 1
+    assert json.loads(stored[0][0])["Code"] == "100"
+    db.close()
+
+
+def test_source_event_import_is_idempotent_for_identical_content(tmp_path):
+    """Re-importing the exact same rows must return 0 and not duplicate records."""
+    row = _source_row()
+    db = Historian(tmp_path / "hist.sqlite")
+    csv_path = _make_source_csv(tmp_path, [row])
+    assert db.import_source_events(csv_path) == 1
+    assert db.import_source_events(csv_path) == 0
+    assert db.conn.execute("SELECT count(*) FROM source_events").fetchone()[0] == 1
+    db.close()
 
 
 def test_full_week_replay_has_unique_source_times_without_short_loop():
