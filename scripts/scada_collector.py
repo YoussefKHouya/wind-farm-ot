@@ -59,10 +59,14 @@ class Historian:
         turbine = IDS[device_id]
         previous = self._current(turbine)
         last = self.conn.execute(
-            "SELECT sequence,observed_at_utc FROM observations WHERE turbine_id=? ORDER BY id DESC LIMIT 1",
+            "SELECT sequence,observed_at_utc,payload FROM observations WHERE turbine_id=? ORDER BY id DESC LIMIT 1",
             (turbine,)).fetchone()
         payload = {"turbine_id": turbine, "observed_at_utc": observed_at_utc, **values}
         changed = last is None or last[0] != values["sequence"]
+        if last and not changed:
+            last_payload = json.loads(last[2])
+            if any(last_payload.get(key) != value for key, value in values.items()):
+                raise ValueError("Modbus payload changed without a new sequence")
         recovered = previous and previous["quality"] in ("COMM_LOSS", "BAD_DATA", "STALE") and changed
         with self.conn:
             if changed:
