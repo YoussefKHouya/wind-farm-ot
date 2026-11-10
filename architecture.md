@@ -187,6 +187,14 @@ Turbine state precedence each tick: `SAFETY_TRIPPED` / `SAFETY_UNAVAILABLE` → 
 
 Run: `.venv/bin/python -m scripts.field_plant [--scenario-faults]`. This is educational logic — not an OEM model, certified SIS or physical safety boundary.
 
+### Level 1 — PLC and MU/IED/RTU (`scripts/plc.py`, `scripts/rtu.py`)
+
+Both poll Level 0 field I/O and serve Modbus TCP (device ID 1) from their own tables; pymodbus' internal store is never trusted for reads.
+
+**PLC** (`127.0.0.1:15021`): coils 0–2 RUN T01–T03, 3–5 CB-T01..T03 closers, 6 CB-FDR closer; discrete inputs 0–3 breaker positions, 4–6 safety latches; input registers 0–2 turbine state codes (1 RUNNING, 2 STOPPED, 3 LOW_WIND, 4 HIGH_WIND_CUTOUT, 5 DISCONNECTED, 6 GRID_LOSS, 7 SAFETY_TRIPPED, 8 SAFETY_UNAVAILABLE, 0 unknown), 3 field-link OK, 4 scan counter, 5 field tick. Ladder scan: on the first successful scan adopt breaker positions and running states into the coils (first-scan bit, so a PLC restart never drops a running plant); force RUN low while a safety latch is set; drive field outputs from the coils. Coil writes are unauthenticated, as in Modbus. A breaker trip leaves the closer coil high while the position contact reads open.
+
+**RTU** (`127.0.0.1:15022`): holding registers carry per-turbine power, generator kV/A, downstream A, RPM, bearing temperature, wind, breaker position and IED alert bits, plus transformer, feeder kV/A, export kW, sequence and quality. IED checks per upstream/downstream pair: leakage, open breaker carrying current, overcurrent (turbine 1,900 A, feeder 110 A), physical range (generator ≤ 0.76 kV, feeder ≤ 36.3 kV). On field-link loss the last values are held with quality 0. By default the data table accepts Modbus writes — the deliberate weakness for the false-data-injection exercise; each refresh overwrites injected values. `--reject-writes` is the hardened configuration.
+
 ## Evidence behind tool selection
 
 - windpowerlib ModelChain supports weather-to-turbine power output and custom turbine power curves: https://windpowerlib.readthedocs.io/en/stable/modelchain_example_notebook.html
