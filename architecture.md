@@ -167,6 +167,26 @@ Register map **v1, not a vendor/IEC register mapping**: address 0 version (=1); 
 
 **Security boundary:** The gateway is intentionally read-only because authentic historical measurements cannot be changed by operator commands. The existing synthetic plant/safety process is a separate exercise. A future command channel must act only on that simulated plant, require actor/role checks and audits, and prove that a safety trip overrides it. This stack alone is a SCADA observation environment, not a full wind-farm control system or a production-secure OT deployment.
 
+## Controllable simulated plant (three-level model)
+
+The controllable track follows the Level 0 / Level 1 / Level 2 split used by the Power Grid Simulation System reference design (https://github.com/LiuYuancheng/Power_Grid_Simulation_System_Document): a physical-world process, field controllers (PLC for breakers and run requests, RTU for metering), and a SCADA-HMI. It never touches the recorded historical replay.
+
+### Level 0 — field process (`scripts/field_plant.py`)
+
+Three weather-driven turbines (OEDB V90/2000 curve, Tarfaya reanalysis weather, one tick per hourly record) feed motorised 690 V generator breakers `CB-T01..T03`; a 0.69/33 kV step-up transformer (99 % efficiency) and 33 kV feeder breaker `CB-FDR` carry the export to a grid-side export meter. Line currents use `I = P / (√3 · V · 0.95)`. Breaker ratings: turbine 2,000 A, feeder 120 A.
+
+Breakers follow the motorised-closer pattern: a 0→1 closer pulse closes, 1→0 opens, and an overcurrent or safety trip opens the contact while the coil stays high, so coil and position can disagree (the condition Level 2 must alarm on). Reclosing needs a fresh pulse.
+
+Turbine state precedence each tick: `SAFETY_TRIPPED` / `SAFETY_UNAVAILABLE` → `STOPPED` → `HIGH_WIND_CUTOUT` → `LOW_WIND` → `DISCONNECTED` (own breaker open or tripped) → `GRID_LOSS` (feeder open) → `RUNNING`.
+
+**Field I/O:** loopback UDP JSON, default `127.0.0.1:15030`. `{"op":"read"}` returns breaker positions and trip reasons, turbine states, safety-latch contacts and metering-unit values; `{"op":"write","outputs":{"run":{...},"breaker":{...}}}` applies run requests and closer coils. Like real field wiring it is unauthenticated. Scenario faults (`overheat`, `sensor_failure`, `overcurrent`) are accepted only when started with `--scenario-faults`.
+
+**Safety:** the private safety child (`scripts/safety_service.py`) receives a dedicated simulated bearing sensor, not the SCADA value. A latched trip stops the turbine, trips and blocks its breaker, and requires a fresh START after reset. Loss of the safety child trips every turbine (`SAFETY_UNAVAILABLE`).
+
+**Command rules (agreed):** operators may START/STOP; START is refused while a trip is latched; only a named supervisor at the local console may LOCAL_RESET, and only when the safety sensor is valid and below the 75 °C reset setpoint; reset never restarts a turbine; every attempt is audited. LOCAL_RESET is not available over field I/O, Modbus or the HMI: it is accepted only on an owner-only (0600) Unix socket, from the plant's own Unix user (`SO_PEERCRED`), and appended to `data/runtime/safety_audit.jsonl`.
+
+Run: `.venv/bin/python -m scripts.field_plant [--scenario-faults]`. This is educational logic — not an OEM model, certified SIS or physical safety boundary.
+
 ## Evidence behind tool selection
 
 - windpowerlib ModelChain supports weather-to-turbine power output and custom turbine power curves: https://windpowerlib.readthedocs.io/en/stable/modelchain_example_notebook.html
