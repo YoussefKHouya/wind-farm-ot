@@ -201,6 +201,16 @@ Polls the PLC (coils, discrete inputs, input registers) and RTU (data table) ove
 
 Run: `.venv/bin/python -m scripts.plant_collector [--plc HOST:PORT] [--rtu HOST:PORT]`.
 
+### Level 2 — command service (`scripts/command_service.py`)
+
+HTTP API (default `127.0.0.1:18081`, host configurable) that turns operator requests into PLC coil writes. `POST /api/commands` takes `START`/`STOP` for `T01`–`T03` and `OPEN`/`CLOSE` for `CB-T01`–`CB-T03`, `CB-FDR`; `POST /api/locks` (supervisor only) sets or clears a maintenance lock on `T01`–`T03` or `FDR`; `GET /api/locks`, `/api/audit` and `/api/whoami` read state.
+
+Users authenticate with HTTP Basic against `data/runtime/users.json` (mode 0600, salted scrypt hashes only; create with `python -m scripts.command_service add-user NAME --role operator|supervisor`). Every request is checked against a fresh PLC read inside one lock, so two operators cannot race an interlock: START is refused while the safety trip is latched (`SAFETY_TRIP_LATCHED`) or the unit is locked (`MAINTENANCE_LOCK`); CLOSE is refused under a lock and, for a turbine breaker, while its trip is latched; STOP and OPEN are never interlocked. Closing a tripped breaker (closer coil high, contact open) sends a real 0→1 pulse held for `--pulse` seconds so the PLC scans both edges. Each write is read back from the PLC. `LOCAL_RESET` is always refused (`LOCAL_CONSOLE_ONLY`). Every attempt — accepted, refused, invalid, wrong role or failed login — is written to `data/runtime/commands.sqlite` with actor, role, client address, coil writes and reason.
+
+Known weakness, kept on purpose for the exercises: Basic auth runs over plain HTTP, so credentials can be sniffed on the project network, and the PLC itself still accepts unauthenticated Modbus writes that bypass this service entirely.
+
+Run: `.venv/bin/python -m scripts.command_service serve [--host H] [--port P] [--plc HOST:PORT]`.
+
 ## Evidence behind tool selection
 
 - windpowerlib ModelChain supports weather-to-turbine power output and custom turbine power curves: https://windpowerlib.readthedocs.io/en/stable/modelchain_example_notebook.html
