@@ -127,8 +127,19 @@ class PlantHistorian:
             CREATE TABLE IF NOT EXISTS events (
                 id INTEGER PRIMARY KEY, device TEXT NOT NULL,
                 observed_at_utc TEXT NOT NULL, kind TEXT NOT NULL);
+            CREATE TABLE IF NOT EXISTS heartbeat (
+                id INTEGER PRIMARY KEY CHECK (id = 1), at_utc TEXT NOT NULL);
         """)
         self.conn.commit()
+
+    def heartbeat(self, at_utc: str):
+        """Record that a poll cycle ran, so consumers can tell a stopped collector from a quiet plant."""
+        with self.conn:
+            self.conn.execute("INSERT OR REPLACE INTO heartbeat VALUES (1, ?)", (at_utc,))
+
+    def last_heartbeat(self) -> float | None:
+        row = self.conn.execute("SELECT at_utc FROM heartbeat WHERE id=1").fetchone()
+        return _seconds(row[0]) if row else None
 
     @staticmethod
     def _check(device: str):
@@ -237,6 +248,7 @@ async def poll_once(plc: tuple[str, int], rtu: tuple[str, int], db: PlantHistori
     now = datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
     await asyncio.gather(_poll_device("plc", plc, _read_plc, db, now, max_age_seconds),
                          _poll_device("rtu", rtu, _read_rtu, db, now, max_age_seconds))
+    db.heartbeat(now)
 
 
 async def run(args):

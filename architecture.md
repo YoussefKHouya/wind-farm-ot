@@ -211,6 +211,29 @@ Known weakness, kept on purpose for the exercises: Basic auth runs over plain HT
 
 Run: `.venv/bin/python -m scripts.command_service serve [--host H] [--port P] [--plc HOST:PORT]`.
 
+### Level 2 — alarm engine (`scripts/alarm_engine.py`)
+
+Reads the plant historian each cycle and keeps alarm instances in `data/historian/alarms.sqlite`; it never talks to a controller. The collector writes a heartbeat after every poll so a stopped collector (`COLLECTOR_STALE`) is distinguishable from a quiet plant.
+
+| Key | Priority | Condition |
+|---|---|---|
+| `COLLECTOR_STALE` | HIGH | no collector heartbeat for `--stale-after` (10 s) |
+| `COMM:plc`, `COMM:rtu` | HIGH | controller data quality not GOOD |
+| `SAFETY:<T>` | CRITICAL | safety trip latched; first-out, hides its own breaker mismatch |
+| `SAFETY_UNAVAILABLE:<T>` | CRITICAL | safety system unavailable |
+| `BREAKER:<CB>` | HIGH | closer command and position contact disagree (trip or failed operation) |
+| `IED:<unit>:<alert>` | MEDIUM/HIGH | RTU IED alert bits |
+| `RANGE:<field>` | MEDIUM | physically impossible RTU value (feeder > 36.3 kV, bearing outside −40…150 °C, …) |
+| `ENERGY_BALANCE` | HIGH | Σ turbine power × 0.99 differs from the export meter by more than max(30 kW, 3 %) |
+| `CROSSCHECK:BREAKER:<CB>` | HIGH | PLC and RTU report different breaker positions |
+| `CROSSCHECK:POWER:<T>` | HIGH | PLC turbine state and RTU power disagree |
+
+The last four detect false data injection: a forged RTU value must stay consistent with the PLC, the energy balance and physics. They detect inconsistency, not intent — a metering fault raises the same alarm. A forged RTU frame must also advance the RTU sequence register, otherwise the collector treats it as a repeat and ignores it.
+
+Lifecycle (ISA-18.2 style): a condition must hold for its on-delay (1–3 cycles) before raising and be absent for `--off-delay` cycles before clearing. An alarm stays listed until cleared **and** acknowledged; a condition returning before acknowledgement reactivates the same alarm and needs a new acknowledgement, while a recurrence after closure is a new alarm. When a source's data quality is bad, alarms depending on it are held, not cleared on missing evidence. Raises, clears and acknowledgements (with actor) are journalled. Acknowledgement is exposed through the HMI milestone.
+
+Run: `.venv/bin/python -m scripts.alarm_engine [--plant-db PATH] [--db PATH]`.
+
 ## Evidence behind tool selection
 
 - windpowerlib ModelChain supports weather-to-turbine power output and custom turbine power curves: https://windpowerlib.readthedocs.io/en/stable/modelchain_example_notebook.html

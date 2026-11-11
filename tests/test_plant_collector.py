@@ -171,6 +171,13 @@ def test_unknown_device_rejected(db):
         db.mark("hmi", "COMM_LOSS", NOW)
 
 
+def test_heartbeat_records_the_last_poll_even_without_new_samples(db):
+    assert db.last_heartbeat() is None
+    db.heartbeat("2026-01-01T00:00:00Z")
+    db.heartbeat("2026-01-01T00:00:07Z")
+    assert db.last_heartbeat() == 1767225607.0
+
+
 # --- live stack --------------------------------------------------------------------------
 
 def _port(kind=socket.SOCK_STREAM):
