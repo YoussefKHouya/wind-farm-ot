@@ -195,6 +195,12 @@ Both poll Level 0 field I/O and serve Modbus TCP (device ID 1) from their own ta
 
 **RTU** (`127.0.0.1:15022`): holding registers carry per-turbine power, generator kV/A, downstream A, RPM, bearing temperature, wind, breaker position and IED alert bits, plus transformer, feeder kV/A, export kW, sequence and quality. IED checks per upstream/downstream pair: leakage, open breaker carrying current, overcurrent (turbine 1,900 A, feeder 110 A), physical range (generator ≤ 0.76 kV, feeder ≤ 36.3 kV). On field-link loss the last values are held with quality 0. By default the data table accepts Modbus writes — the deliberate weakness for the false-data-injection exercise; each refresh overwrites injected values. `--reject-writes` is the hardened configuration.
 
+### Level 2 — plant SCADA collector (`scripts/plant_collector.py`)
+
+Polls the PLC (coils, discrete inputs, input registers) and RTU (data table) over Modbus TCP at configurable `host:port` endpoints and stores one sample per controller in `data/historian/plant.sqlite` (ignored by Git). It never writes to a controller. Each sample carries a quality: `GOOD`; `STALE` (controller answers but its scan counter or sequence has not moved for longer than `--max-age`, default 5 s); `COMM_LOSS` (no answer); `BAD_DATA` (exception response or values outside the register map, e.g. a breaker position of 7); `FIELD_LINK_LOST` (controller answers but reports losing its field inputs). Any non-GOOD state nulls current values and keeps the last good samples; recovery requires a genuinely new sample and is logged as `RECOVERED`. An in-range forged RTU value is recorded as GOOD: detecting it is the alarm engine's cross-check, not the collector's job.
+
+Run: `.venv/bin/python -m scripts.plant_collector [--plc HOST:PORT] [--rtu HOST:PORT]`.
+
 ## Evidence behind tool selection
 
 - windpowerlib ModelChain supports weather-to-turbine power output and custom turbine power curves: https://windpowerlib.readthedocs.io/en/stable/modelchain_example_notebook.html
