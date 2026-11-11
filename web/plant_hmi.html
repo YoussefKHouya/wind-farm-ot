@@ -1,0 +1,419 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wind Farm · Plant Overview</title>
+<style>
+  :root {
+    --bg: #c9cdd2; --panel: #e3e6e9; --panel2: #d6dade; --ink: #1d2126; --muted: #5d646d;
+    --line-live: #1d2126; --line-dead: #8f969f; --bad: #a100b3;
+    --crit: #d10000; --high: #ff7300; --med: #e8b800; --low: #2f6fd1;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink);
+         font: 13px/1.35 "Segoe UI", "Helvetica Neue", Arial, sans-serif; }
+  header { display: flex; align-items: center; gap: 14px; padding: 8px 14px; background: #2b3036; color: #e9ecef;
+           flex-wrap: wrap; }
+  header h1 { font-size: 15px; letter-spacing: .08em; margin: 0; font-weight: 700; }
+  .badge { border: 1px solid #8a939c; border-radius: 3px; padding: 2px 7px; font-size: 11px; letter-spacing: .06em; }
+  #quality { display: flex; gap: 6px; }
+  .pill { padding: 2px 8px; border-radius: 3px; background: #444b53; font-size: 11px; font-weight: 600; }
+  .pill.bad { background: var(--bad); color: #fff; }
+  .pill.warn { background: var(--high); color: #111; }
+  .spacer { flex: 1; }
+  #clock { font-variant-numeric: tabular-nums; color: #c8cdd2; }
+  #login { display: flex; gap: 6px; align-items: center; }
+  #login input { width: 110px; padding: 3px 5px; border: 1px solid #6b737c; background: #f1f3f5; border-radius: 2px; }
+  button { font: inherit; padding: 4px 10px; border: 1px solid #6b737c; background: #f1f3f5; border-radius: 2px;
+           cursor: pointer; }
+  button:disabled { opacity: .45; cursor: not-allowed; }
+  button.primary { background: #2b3036; color: #fff; border-color: #2b3036; }
+  main { display: grid; grid-template-columns: minmax(0, 1fr) 330px; gap: 10px; padding: 10px; }
+  section { background: var(--panel); border: 1px solid #aeb4ba; border-radius: 3px; }
+  section h2 { margin: 0; padding: 6px 10px; font-size: 11px; letter-spacing: .1em; text-transform: uppercase;
+               color: var(--muted); border-bottom: 1px solid #c3c8cd; background: var(--panel2); }
+  #alarms-panel { grid-column: 1 / -1; }
+  #alarm-list { max-height: 190px; overflow: auto; }
+  table { width: 100%; border-collapse: collapse; }
+  th, td { text-align: left; padding: 4px 8px; border-bottom: 1px solid #ccd1d5; vertical-align: middle; }
+  th { font-size: 11px; color: var(--muted); font-weight: 600; position: sticky; top: 0; background: var(--panel); }
+  td.prio { width: 10px; padding: 0; }
+  tr.CRITICAL td.prio { background: var(--crit); } tr.HIGH td.prio { background: var(--high); }
+  tr.MEDIUM td.prio { background: var(--med); } tr.LOW td.prio { background: var(--low); }
+  tr.unack td { font-weight: 600; }
+  tr.unack.active td.state { animation: blink 1s steps(2, start) infinite; }
+  @keyframes blink { to { visibility: hidden; } }
+  .empty { padding: 10px; color: var(--muted); }
+  #single-line svg, #trend svg { width: 100%; height: auto; display: block; }
+  .equip { cursor: pointer; }
+  .equip:hover .hit { fill: rgba(0, 0, 0, .06); }
+  .selected .hit { fill: rgba(47, 111, 209, .14); }
+  .val { font-variant-numeric: tabular-nums; }
+  #faceplate .body, #journal { padding: 10px; }
+  .kv { display: grid; grid-template-columns: 1fr auto; gap: 3px 10px; margin-bottom: 10px; }
+  .kv span:nth-child(odd) { color: var(--muted); }
+  .kv span:nth-child(even) { text-align: right; font-variant-numeric: tabular-nums; font-weight: 600; }
+  .actions { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+  .confirm { margin-top: 10px; padding: 8px; border: 1px solid #2b3036; background: #f6f7f8; }
+  .result { margin-top: 8px; font-weight: 600; }
+  .result.ok { color: #1f6f2b; } .result.no { color: var(--crit); }
+  .bad { color: var(--bad); font-weight: 700; }
+  #journal { max-height: 260px; overflow: auto; font-size: 12px; }
+  #journal div { padding: 2px 0; border-bottom: 1px dotted #c3c8cd; }
+  .footnote { padding: 6px 14px 14px; color: var(--muted); font-size: 11px; }
+  @media (max-width: 900px) { main { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<header>
+  <h1>WIND FARM · PLANT OVERVIEW</h1>
+  <span class="badge">SIMULATED PLANT · training environment</span>
+  <div id="quality"></div>
+  <div class="spacer"></div>
+  <span id="clock"></span>
+  <div id="login"></div>
+</header>
+
+<main>
+  <section id="alarms-panel">
+    <h2>Alarms</h2>
+    <div id="alarm-list"><div class="empty">Loading…</div></div>
+  </section>
+
+  <div>
+    <section>
+      <h2>Single-line diagram · 690 V collection / 33 kV export</h2>
+      <div id="single-line"></div>
+    </section>
+    <section style="margin-top:10px">
+      <h2>Trend · export and turbine power (kW)</h2>
+      <div id="trend"></div>
+    </section>
+  </div>
+
+  <div>
+    <section id="faceplate">
+      <h2>Faceplate</h2>
+      <div class="body"><div class="empty">Select a turbine or breaker on the diagram.</div></div>
+    </section>
+    <section style="margin-top:10px">
+      <h2>Alarm journal</h2>
+      <div id="journal"></div>
+    </section>
+  </div>
+</main>
+<div class="footnote">Simulated plant for OT security training — not connected to any real wind farm.
+  Commands go through the command service (roles, interlocks, audit). Safety resets are only possible at the
+  plant's local console.</div>
+
+<script>
+"use strict";
+const TURBINES = ["T01", "T02", "T03"];
+const BREAKERS = { "CB-T01": "T01", "CB-T02": "T02", "CB-T03": "T03", "CB-FDR": "FDR" };
+const PRIO_COLOR = { CRITICAL: "var(--crit)", HIGH: "var(--high)", MEDIUM: "var(--med)", LOW: "var(--low)" };
+const PRIO_RANK = { CRITICAL: 0, HIGH: 1, MEDIUM: 2, LOW: 3 };
+
+let auth = null;            // in-memory only: {header, user, role}
+let data = null;            // last /api/overview
+let locks = {};
+let selected = null;        // "T01" | "CB-T01" ...
+let pending = null;         // {action, target} awaiting confirmation
+let lastResult = null;
+
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const fmt = (v, digits = 0) => (v === null || v === undefined) ? "—" : Number(v).toFixed(digits);
+
+async function api(method, path, body) {
+  const headers = { "content-type": "application/json" };
+  if (auth) headers.Authorization = auth.header;
+  const response = await fetch(path, { method, headers, body: body ? JSON.stringify(body) : undefined });
+  let payload = null;
+  try { payload = await response.json(); } catch (_) { payload = null; }
+  return { status: response.status, payload };
+}
+
+// ---- login (credentials kept in memory only) ------------------------------------------
+function renderLogin() {
+  const el = $("login");
+  if (auth) {
+    el.innerHTML = `<span>${esc(auth.user)} <span class="badge">${esc(auth.role)}</span></span>
+                    <button id="logout">Log out</button>`;
+    $("logout").onclick = () => { auth = null; locks = {}; pending = null; renderLogin(); renderFaceplate(); };
+  } else {
+    el.innerHTML = `<input id="user" placeholder="user" autocomplete="username">
+                    <input id="pass" type="password" placeholder="password" autocomplete="current-password">
+                    <button id="signin">Log in</button><span id="loginmsg"></span>`;
+    const submit = async () => {
+      const header = "Basic " + btoa($("user").value + ":" + $("pass").value);
+      const response = await fetch("/api/whoami", { headers: { Authorization: header } });
+      if (response.status === 200) {
+        const who = await response.json();
+        auth = { header, user: who.user, role: who.role };
+        renderLogin(); refreshLocks(); renderFaceplate();
+      } else {
+        $("loginmsg").textContent = response.status === 503 ? " command service down" : " login failed";
+      }
+    };
+    $("signin").onclick = submit;
+    $("pass").onkeydown = (e) => { if (e.key === "Enter") submit(); };
+  }
+}
+
+async function refreshLocks() {
+  if (!auth) { locks = {}; return; }
+  const { status, payload } = await api("GET", "/api/locks");
+  if (status === 200) locks = payload.locks || {};
+}
+
+// ---- helpers over the overview -------------------------------------------------------
+const plcGood = () => data && data.plc.quality === "GOOD";
+const rtuGood = () => data && data.rtu.quality === "GOOD";
+const plc = () => plcGood() ? data.plc.values : null;
+const rtu = () => rtuGood() ? data.rtu.values : null;
+
+function alarmsFor(id) {
+  if (!data) return [];
+  return data.alarms.filter((a) => {
+    const parts = a.key.split(":");
+    if (id === "CB-FDR") return parts.includes("CB-FDR") || parts.includes("FDR") || a.key === "ENERGY_BALANCE"
+      || a.key === "RANGE:feeder_kv";
+    return parts.includes(id);
+  });
+}
+function worst(alarms) {
+  const active = alarms.filter((a) => a.active);
+  if (!active.length) return null;
+  return active.sort((a, b) => PRIO_RANK[a.priority] - PRIO_RANK[b.priority])[0].priority;
+}
+
+// ---- header quality ------------------------------------------------------------------
+function renderQuality() {
+  const pills = [];
+  const collector = data && data.collector.ok;
+  pills.push(`<span class="pill ${collector ? "" : "bad"}">COLLECTOR ${collector ? "OK" : "STALE"}</span>`);
+  for (const dev of ["plc", "rtu"]) {
+    const q = data ? data[dev].quality : "NO_DATA";
+    pills.push(`<span class="pill ${q === "GOOD" ? "" : "bad"}">${dev.toUpperCase()} ${esc(q)}</span>`);
+  }
+  const unack = data ? data.alarms.filter((a) => !a.acked).length : 0;
+  if (unack) pills.push(`<span class="pill warn">${unack} UNACK</span>`);
+  $("quality").innerHTML = pills.join("");
+}
+
+// ---- alarm list ----------------------------------------------------------------------
+function renderAlarms() {
+  if (!data) return;
+  if (!data.alarms.length) { $("alarm-list").innerHTML = '<div class="empty">No alarms.</div>'; return; }
+  const rows = data.alarms.map((a) => {
+    const state = a.active ? (a.acked ? "ACTIVE" : "ACTIVE · UNACK") : "CLEARED · UNACK";
+    const ack = a.acked ? "" : `<button data-ack="${a.id}" ${auth ? "" : "disabled title='log in to acknowledge'"}>Ack</button>`;
+    return `<tr class="${esc(a.priority)} ${a.acked ? "" : "unack"} ${a.active ? "active" : ""}">
+      <td class="prio"></td><td>${esc(a.priority)}</td><td class="val">${esc(String(a.raised_at).slice(0, 19).replace("T", " "))}</td>
+      <td><code>${esc(a.key)}</code></td><td>${esc(a.message)}</td><td class="state">${state}</td><td>${ack}</td></tr>`;
+  }).join("");
+  $("alarm-list").innerHTML = `<table><thead><tr><th></th><th>Priority</th><th>Raised (UTC)</th><th>Alarm</th>
+    <th>Message</th><th>State</th><th></th></tr></thead><tbody>${rows}</tbody></table>`;
+  for (const button of document.querySelectorAll("[data-ack]")) {
+    button.onclick = async () => {
+      const { status, payload } = await api("POST", `/api/alarms/${button.dataset.ack}/ack`);
+      if (status !== 200) alert(`Acknowledge refused: ${payload && payload.reason || status}`);
+      refresh();
+    };
+  }
+}
+
+// ---- single-line diagram -------------------------------------------------------------
+function renderDiagram() {
+  const p = plc(), r = rtu();
+  const live = "var(--line-live)", dead = "var(--line-dead)";
+  let svg = `<svg viewBox="0 0 1010 330" role="img" aria-label="Single-line diagram">`;
+  const anyFlow = r && TURBINES.some((t) => r.turbines[t].power_kw > 0 && r.turbines[t].breaker_closed);
+  // 690 V bus
+  svg += `<line x1="90" y1="250" x2="790" y2="250" stroke="${anyFlow ? live : dead}" stroke-width="5"/>
+          <text x="92" y="272" font-size="11" fill="var(--muted)">690 V COLLECTION BUS</text>`;
+  TURBINES.forEach((t, i) => {
+    const x = 160 + i * 230;
+    const state = p ? p.turbine_state[t] : null;
+    const latched = p ? p.safety_latched[t] : false;
+    const closed = p ? p.breaker_closed[t] : null;
+    const commanded = p ? p.breaker_command[t] : null;
+    const m = r ? r.turbines[t] : null;
+    const producing = m && m.power_kw > 0;
+    const tPrio = worst(alarmsFor(t)), bPrio = worst(alarmsFor("CB-" + t));
+    // turbine / generator
+    svg += `<g class="equip ${selected === t ? "selected" : ""}" data-select="${t}">
+      <rect class="hit" x="${x - 95}" y="8" width="190" height="120" fill="transparent"/>
+      <circle cx="${x}" cy="66" r="28" fill="#f4f5f6" stroke="${tPrio ? PRIO_COLOR[tPrio] : live}" stroke-width="${tPrio ? 4 : 2}"/>
+      <text x="${x}" y="72" text-anchor="middle" font-size="18" font-weight="700">G</text>
+      <text x="${x}" y="25" text-anchor="middle" font-size="13" font-weight="700">${t}</text>
+      <text x="${x + 38}" y="58" font-size="12" class="${p ? "" : "bad"}">${p ? esc(state) : "PLC ?"}</text>
+      <text x="${x + 38}" y="76" font-size="12" class="val ${r ? "" : "bad"}">${r ? fmt(m.power_kw) + " kW" : "---- kW"}</text>
+      <text x="${x + 38}" y="93" font-size="11" fill="var(--muted)" class="val">${r ? fmt(m.rpm, 1) + " rpm · " + fmt(m.wind_mps, 1) + " m/s" : ""}</text>
+      ${latched ? `<rect x="${x - 88}" y="54" width="44" height="22" fill="var(--crit)"/><text x="${x - 66}" y="70" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">TRIP</text>` : ""}
+      ${locks[t] ? `<rect x="${x - 88}" y="82" width="44" height="18" fill="#5b3fa8"/><text x="${x - 66}" y="95" text-anchor="middle" font-size="10" font-weight="700" fill="#fff">LOCK</text>` : ""}
+    </g>`;
+    svg += `<line x1="${x}" y1="94" x2="${x}" y2="170" stroke="${producing ? live : dead}" stroke-width="3"/>`;
+    // breaker
+    const mismatch = p && commanded !== closed;
+    svg += `<g class="equip ${selected === "CB-" + t ? "selected" : ""}" data-select="CB-${t}">
+      <rect class="hit" x="${x - 60}" y="160" width="160" height="50" fill="transparent"/>
+      <rect x="${x - 14}" y="170" width="28" height="28" fill="${closed ? live : "#f4f5f6"}"
+            stroke="${bPrio ? PRIO_COLOR[bPrio] : live}" stroke-width="${bPrio ? 4 : 2}"/>
+      <text x="${x + 22}" y="183" font-size="11" font-weight="700">CB-${t}</text>
+      <text x="${x + 22}" y="197" font-size="11" class="${p ? "" : "bad"}">${p ? (closed ? "CLOSED" : "OPEN") + (mismatch ? " ≠ CMD" : "") : "?"}</text>
+    </g>`;
+    svg += `<line x1="${x}" y1="198" x2="${x}" y2="250" stroke="${producing && closed ? live : dead}" stroke-width="3"/>`;
+  });
+  // transformer, feeder breaker, grid
+  const f = r ? r.farm : null;
+  const fdrClosed = p ? p.breaker_closed.FDR : null;
+  const fPrio = worst(alarmsFor("CB-FDR"));
+  const exporting = f && f.export_kw > 0;
+  svg += `<line x1="790" y1="250" x2="812" y2="250" stroke="${anyFlow ? live : dead}" stroke-width="3"/>
+    <circle cx="828" cy="250" r="17" fill="none" stroke="${live}" stroke-width="2"/>
+    <circle cx="850" cy="250" r="17" fill="none" stroke="${live}" stroke-width="2"/>
+    <text x="839" y="218" text-anchor="middle" font-size="11" font-weight="700">TR-1 0.69/33 kV</text>
+    <text x="839" y="292" text-anchor="middle" font-size="11" class="val ${r ? "" : "bad"}">${r ? fmt(f.transformer_out_kw) + " kW" : "---- kW"}</text>
+    <line x1="867" y1="250" x2="896" y2="250" stroke="${anyFlow ? live : dead}" stroke-width="3"/>
+    <g class="equip ${selected === "CB-FDR" ? "selected" : ""}" data-select="CB-FDR">
+      <rect class="hit" x="880" y="150" width="125" height="160" fill="transparent"/>
+      <rect x="896" y="236" width="28" height="28" fill="${fdrClosed ? live : "#f4f5f6"}"
+            stroke="${fPrio ? PRIO_COLOR[fPrio] : live}" stroke-width="${fPrio ? 4 : 2}"/>
+      <text x="910" y="228" text-anchor="middle" font-size="11" font-weight="700">CB-FDR</text>
+      <text x="910" y="282" text-anchor="middle" font-size="11" class="${p ? "" : "bad"}">${p ? (fdrClosed ? "CLOSED" : "OPEN") + (p.breaker_command.FDR !== fdrClosed ? " ≠ CMD" : "") : "?"}</text>
+    </g>
+    <line x1="924" y1="250" x2="990" y2="250" stroke="${exporting ? live : dead}" stroke-width="5"/>
+    <polygon points="990,242 1006,250 990,258" fill="${exporting ? live : dead}"/>
+    <text x="960" y="170" text-anchor="middle" font-size="12" font-weight="700">33 kV GRID</text>
+    <text x="960" y="186" text-anchor="middle" font-size="12" class="val ${r ? "" : "bad"}">${r ? "EXPORT " + fmt(f.export_kw) + " kW" : "EXPORT ----"}</text>
+    <text x="960" y="202" text-anchor="middle" font-size="11" fill="var(--muted)" class="val">${r ? fmt(f.feeder_kv, 1) + " kV · " + fmt(f.feeder_a, 1) + " A" : ""}</text>`;
+  svg += `</svg>`;
+  $("single-line").innerHTML = svg;
+  for (const g of document.querySelectorAll("[data-select]")) {
+    g.onclick = () => { selected = g.dataset.select; pending = null; lastResult = null; renderDiagram(); renderFaceplate(); };
+  }
+}
+
+// ---- faceplate -----------------------------------------------------------------------
+function renderFaceplate() {
+  const body = document.querySelector("#faceplate .body");
+  if (!selected) { body.innerHTML = '<div class="empty">Select a turbine or breaker on the diagram.</div>'; return; }
+  const p = plc(), r = rtu();
+  const isTurbine = TURBINES.includes(selected);
+  const unit = isTurbine ? selected : BREAKERS[selected];
+  let rows = [];
+  if (isTurbine) {
+    const m = r ? r.turbines[selected] : null;
+    rows = [["State", p ? p.turbine_state[selected] : "PLC ?"], ["Run request", p ? (p.run_request[selected] ? "ON" : "OFF") : "?"],
+      ["Safety trip", p ? (p.safety_latched[selected] ? "LATCHED" : "normal") : "?"],
+      ["Power", m ? fmt(m.power_kw) + " kW" : "----"], ["Generator", m ? fmt(m.gen_kv, 2) + " kV · " + fmt(m.gen_a) + " A" : "----"],
+      ["Rotor", m ? fmt(m.rpm, 1) + " rpm" : "----"], ["Wind", m ? fmt(m.wind_mps, 1) + " m/s" : "----"],
+      ["Bearing", m ? fmt(m.bearing_temp_c, 1) + " °C" : "----"]];
+  } else {
+    rows = [["Position", p ? (p.breaker_closed[unit] ? "CLOSED" : "OPEN") : "?"],
+      ["Closer command", p ? (p.breaker_command[unit] ? "CLOSE" : "OPEN") : "?"]];
+    if (unit === "FDR" && r) rows.push(["Export", fmt(r.farm.export_kw) + " kW"], ["Feeder", fmt(r.farm.feeder_kv, 1) + " kV · " + fmt(r.farm.feeder_a, 1) + " A"]);
+  }
+  rows.push(["Maintenance lock", auth ? (locks[unit] ? `by ${locks[unit].by}` : "none") : "log in to view"]);
+  const actions = isTurbine ? ["START", "STOP"] : ["CLOSE", "OPEN"];
+  const disabled = auth ? "" : "disabled title='log in to operate'";
+  let html = `<div style="font-size:15px;font-weight:700;margin-bottom:8px">${esc(selected)}</div>
+    <div class="kv">${rows.map(([k, v]) => `<span>${esc(k)}</span><span>${esc(v)}</span>`).join("")}</div>
+    <div class="actions">${actions.map((a) => `<button data-act="${a}" ${disabled}>${a}</button>`).join("")}`;
+  if (auth && auth.role === "supervisor") {
+    html += locks[unit] ? `<button data-lock="0">Remove lock</button>` : `<button data-lock="1">Maintenance lock</button>`;
+  }
+  html += `</div>`;
+  if (pending) {
+    html += `<div class="confirm">Confirm <b>${esc(pending.label)}</b>?
+      <div class="actions"><button class="primary" id="execute">Execute</button><button id="cancel">Cancel</button></div></div>`;
+  }
+  if (lastResult) html += `<div class="result ${lastResult.ok ? "ok" : "no"}">${esc(lastResult.text)}</div>`;
+  if (!auth) html += `<div class="empty" style="padding:8px 0 0">Viewing only — log in to operate.</div>`;
+  body.innerHTML = html;
+  for (const b of body.querySelectorAll("[data-act]")) {
+    b.onclick = () => { pending = { kind: "command", action: b.dataset.act, target: selected, label: `${b.dataset.act} ${selected}` };
+                        lastResult = null; renderFaceplate(); };
+  }
+  for (const b of body.querySelectorAll("[data-lock]")) {
+    b.onclick = () => { pending = { kind: "lock", locked: b.dataset.lock === "1", target: unit,
+                                    label: `${b.dataset.lock === "1" ? "LOCK" : "UNLOCK"} ${unit}` };
+                        lastResult = null; renderFaceplate(); };
+  }
+  if (pending) {
+    $("cancel").onclick = () => { pending = null; renderFaceplate(); };
+    $("execute").onclick = async () => {
+      const job = pending; pending = null;
+      const res = job.kind === "command"
+        ? await api("POST", "/api/commands", { action: job.action, target: job.target })
+        : await api("POST", "/api/locks", { target: job.target, locked: job.locked });
+      const ok = res.status === 200 && res.payload && res.payload.accepted;
+      lastResult = { ok, text: ok ? `${job.label}: accepted` : `${job.label}: refused — ${(res.payload && res.payload.reason) || res.status}` };
+      await refreshLocks();
+      refresh();
+    };
+  }
+}
+
+// ---- trend ---------------------------------------------------------------------------
+async function renderTrend() {
+  const { status, payload } = await api("GET", "/api/trend?points=180");
+  if (status !== 200) return;
+  const pts = payload.points;
+  const W = 1010, H = 190, L = 50, R = 12, T = 12, B = 26;
+  if (pts.length < 2) { $("trend").innerHTML = '<div class="empty">Waiting for data…</div>'; return; }
+  const max = Math.max(1000, ...pts.map((p) => p.export_kw), ...pts.flatMap((p) => Object.values(p.turbines)));
+  const top = Math.ceil(max / 1000) * 1000;
+  const xs = (i) => L + (i / (pts.length - 1)) * (W - L - R);
+  const ys = (v) => T + (1 - v / top) * (H - T - B);
+  const line = (vals, color, width) => `<polyline fill="none" stroke="${color}" stroke-width="${width}"
+      points="${vals.map((v, i) => `${xs(i).toFixed(1)},${ys(v).toFixed(1)}`).join(" ")}"/>`;
+  let svg = `<svg viewBox="0 0 ${W} ${H}">`;
+  for (let k = 0; k <= 4; k++) {
+    const v = (top / 4) * k, y = ys(v);
+    svg += `<line x1="${L}" y1="${y}" x2="${W - R}" y2="${y}" stroke="#c3c8cd"/>
+            <text x="${L - 6}" y="${y + 4}" text-anchor="end" font-size="10" fill="var(--muted)">${v}</text>`;
+  }
+  const shades = { T01: "#7b848e", T02: "#9aa2ab", T03: "#5d646d" };
+  for (const t of TURBINES) svg += line(pts.map((p) => p.turbines[t]), shades[t], 1.5);
+  svg += line(pts.map((p) => p.export_kw), "#1d2126", 2.5);
+  const label = (s) => esc(String(s).slice(11, 19));
+  svg += `<text x="${L}" y="${H - 8}" font-size="10" fill="var(--muted)">${label(pts[0].t)}</text>
+          <text x="${W - R}" y="${H - 8}" text-anchor="end" font-size="10" fill="var(--muted)">${label(pts[pts.length - 1].t)} UTC</text>
+          <text x="${L + 8}" y="${T + 12}" font-size="11" font-weight="700">— export</text>
+          <text x="${L + 80}" y="${T + 12}" font-size="11" fill="var(--muted)">— T01 · T02 · T03</text></svg>`;
+  $("trend").innerHTML = svg;
+}
+
+async function renderJournal() {
+  const { status, payload } = await api("GET", "/api/journal?limit=40");
+  if (status !== 200) return;
+  $("journal").innerHTML = payload.events.length ? payload.events.map((e) =>
+    `<div><span class="val">${esc(String(e.at_utc).slice(11, 19))}</span> <b>${esc(e.event)}</b> <code>${esc(e.key)}</code>${e.actor ? " · " + esc(e.actor) : ""}</div>`).join("")
+    : '<div class="empty">No events.</div>';
+}
+
+// ---- loop ----------------------------------------------------------------------------
+async function refresh() {
+  try {
+    const { status, payload } = await api("GET", "/api/overview");
+    if (status === 200) data = payload;
+  } catch (_) { data = null; }
+  renderQuality(); renderAlarms(); renderDiagram();
+  if (!pending) renderFaceplate();
+}
+
+function tick() { $("clock").textContent = new Date().toISOString().slice(0, 19).replace("T", " ") + " UTC"; }
+
+renderLogin();
+refresh(); renderTrend(); renderJournal(); tick();
+setInterval(refresh, 1000);
+setInterval(renderTrend, 3000);
+setInterval(renderJournal, 3000);
+setInterval(refreshLocks, 5000);
+setInterval(tick, 1000);
+</script>
+</body>
+</html>

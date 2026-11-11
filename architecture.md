@@ -234,6 +234,14 @@ Lifecycle (ISA-18.2 style): a condition must hold for its on-delay (1–3 cycles
 
 Run: `.venv/bin/python -m scripts.alarm_engine [--plant-db PATH] [--db PATH]`.
 
+### Level 2 — operator HMI (`scripts/plant_hmi.py`, `web/plant_hmi.html`)
+
+2D high-performance-style operator screen (default `127.0.0.1:18082`): grey background with colour reserved for abnormal states, a header with collector/PLC/RTU quality and the unacknowledged-alarm count, a priority-sorted alarm list (unacknowledged alarms blink; cleared-but-unacknowledged stay listed), a single-line diagram (generators → 690 V breakers → collection bus → TR-1 0.69/33 kV → CB-FDR → 33 kV grid) with energised lines drawn dark and dead lines grey, a faceplate per turbine or breaker, an export/turbine power trend and the alarm journal. Values from a non-GOOD source are shown as `----`/`?` in magenta, never as zero.
+
+Viewing needs no login; any control action does. Commands use select-before-execute (choose equipment → action → confirm) and are forwarded with the caller's login to the command service, which stays the only identity source and applies roles, interlocks and audit. Alarm acknowledgement first verifies the login through the command service (`/api/whoami`), then records the acknowledgement under that user in the alarm journal. Credentials live in page memory only (no cookies or web storage). The HMI reads the historians and never talks to a controller directly.
+
+Run: `.venv/bin/python -m scripts.plant_hmi [--host H] [--port P] [--commands URL]`. Full stack, in order: `field_plant`, `plc`, `rtu`, `plant_collector`, `alarm_engine`, `command_service serve`, `plant_hmi`.
+
 ## Evidence behind tool selection
 
 - windpowerlib ModelChain supports weather-to-turbine power output and custom turbine power curves: https://windpowerlib.readthedocs.io/en/stable/modelchain_example_notebook.html
