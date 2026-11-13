@@ -3,7 +3,7 @@
 Source: Zenodo record 14546480 (Greek wind farm, Jan-Jun 2020, CC BY 4.0).
 Output retains source column labels/units and source timestamps *without inventing
 UTC*. No conversion of suspiciously-labelled power units is performed.
-This is genuine published SCADA replay data, not site telemetry.
+This is genuine published SCADA replay data, not telemetry from any site this project is associated with.
 """
 
 import argparse

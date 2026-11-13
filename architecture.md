@@ -1,4 +1,6 @@
-# Wind Farm OT/SCADA Simulator — Architecture v1
+# Wind Farm OT/SCADA Simulator — Design notes
+
+> Design record. The early sections capture the original design reasoning; the implemented system is documented from **Controllable simulated plant (three-level model)** onward. The [README](README.md) is the entry point.
 
 **Purpose:** A self-contained, offline-capable personal OT/offensive-security project for wind-farm control, monitoring, and safety-boundary testing. It models a generic wind farm, not any operator's actual equipment, topology, protocol mapping, or security posture.
 
@@ -25,7 +27,7 @@ flowchart LR
   C --> A[Alarm engine<br/>rules + model checks]
   D --> A
   D --> API[FastAPI API + WebSocket<br/>telemetry / alarms / controls]
-  API --> H[Browser HMI + 3D farm<br/>Three.js / turbine models]
+  API --> H[2D operator HMI<br/>single-line diagram · alarms · trends]
   A --> D
   A --> API
   H --> Q[Validated operational commands<br/>start / stop]
@@ -45,10 +47,6 @@ Each turbine is a **software state machine plus an engineering approximation**, 
 
 Tick order: `weather -> potential power -> controller state/loads -> rotor and thermal state -> safety sensor -> safety decision and actuator -> actual output -> meter -> SCADA telemetry`. The simulator records ground truth for evaluation; SCADA/detector never reads it directly. The temperature dynamics and rotor response are **educational approximations**, not validated OEM/physics models. We will verify invariants: no negative output; no power when stopped/tripped; capped at rated power; temperatures respond directionally to heat/cooling; safety trip takes priority over start; identical seed/input gives identical replay.
 
-### 3-D visual twin
-
-This project **does have a 3-D way**: render a wind farm in the browser with Three.js. Model one low-poly turbine (tower, nacelle, three-blade rotor) in Blender, export GLB, instantiate it three times, and attach each scene object to the corresponding turbine ID. The browser animates blade rotation from the reported rotor RPM; stop/brake visibly slows it, and trip/fault changes lights/overlays and raises an alarm panel. Show wind direction/strength and time-of-day as optional visuals. Clicking a turbine opens its SCADA details and history. FastAPI streams reported telemetry over WebSocket; the 3-D scene is a *visualization of the observer's view*, not the physics or safety engine. During an attack it may animate an incorrect reported state; a separate evidence view compares that with simulated truth only after/within an evaluation run. 3-D assets have local licenses/provenance and are bundled for an offline demo.
-
 ## Components and responsibilities
 
 | Component | Responsibility | MVP implementation |
@@ -63,13 +61,13 @@ This project **does have a 3-D way**: render a wind farm in the browser with Thr
 | Alarm engine | Deterministic rules: offline/stale, high wind, temperature, power mismatch, meter mismatch | Python rules with debounce, hysteresis, recovery, and acknowledgment |
 | Safety protection subsystem | Dedicated simulated safety sensor -> independent trip logic -> stop/brake final element; latched trip with restricted reset | Separate Python process/module and private simulated sensor channel; trip has precedence over control |
 | Web/API gateway | Read-only telemetry/history stream plus validated control endpoints; server-side role checks and audit | FastAPI REST + WebSocket, scoped to local interface |
-| HMI and 3-D farm | Interactive scene with three turbines, operator panels, trends, safety-trip and alarms | Three.js web UI; custom Blender glTF/GLB turbine mesh or a licensed bundled asset |
+| Operator HMI | 2D high-performance screen: single-line diagram, faceplates, trends, alarm list with acknowledgement | FastAPI + plain HTML/SVG/JS |
 | Command service | Validate operational start/stop requests, record actor/time/result, pass to plant engine; reject starts while safety trip is latched | Local Python service; no Modbus writes from HMI; separate restricted safety-reset workflow |
 | Scenario runner | Named, repeatable cases for normal, mechanical fault, sensor drift, forged power register, comms outage | Test harness with seed and start/end markers |
 
 ## Main data and control flows
 
-1. Input weather sample -> normalize to m/s and UTC -> plant engine computes estimated output using the turbine power curve. The initial data is Open-Meteo historical **reanalysis** for a grid point near the town of Tarfaya (2024-01-01 through 2024-01-07, hourly), not measurements from a wind farm; the representative power curve is windpowerlib/OEDB `V90/2000`, not an claim about any real site's turbines.
+1. Input weather sample -> normalize to m/s and UTC -> plant engine computes estimated output using the turbine power curve. The initial data is Open-Meteo historical **reanalysis** for a grid point near the town of Tarfaya (2024-01-01 through 2024-01-07, hourly), not measurements from a wind farm; the representative power curve is windpowerlib/OEDB `V90/2000`, not a claim about any real site's turbines.
 2. Turbine controller applies availability, high-wind cutout, fault and curtailment rules -> actual simulated output and state.
 3. Turbine telemetry is encoded as Modbus register values; collector polls each endpoint, decodes/scales data, and writes observations to historian. Loss of communication sets BAD/STALE quality, not a fabricated 0 W value.
 4. Simulated substation meter sends aggregate exported power on a separate internal channel. The alarm engine compares individual reported output with model expectations *and* aggregate meter output, allowing tolerance/debounce and explicit fault/curtailment context.
@@ -138,16 +136,15 @@ Historian records: `raw_observations`, `plant_truth` (simulation-only evaluation
 1. **Model contract and fixtures:** define turbine curve, CSV/weather schema (including ambient temperature), units, component-temperature model, time acceleration, state transitions, safety input and trip/reset contracts. Gate: deterministic replay and power/state/temperature/safety-transition unit tests.
 2. **Plant simulator + safety loop:** three turbine instances plus aggregate export meter; dedicated simulated safety sensors, trip solver and stop/brake action. Gate: healthy, fault, stop, cutout, hot-bearing trip, failed sensor and denied restart cases reproducible from seed.
 3. **OT telemetry:** Modbus map/server and separate collector. Gate: decoded values match published values; outage marks stale, not zero.
-4. **Historian + API + functional 2-D HMI:** tabular fleet overview, turbine detail, temperature/power trends, warning/trip status, alarm timeline, authorized reset workflow and command audit. Gate: end-to-end normal run, overheating trip, recovery, stale-sensor behavior and persistence; verify in a real browser. Keep a stable turbine-ID, state, RPM and telemetry API contract so a later 3-D client consumes the same data.
+4. **Historian + API + functional 2-D HMI:** tabular fleet overview, turbine detail, temperature/power trends, warning/trip status, alarm timeline, authorized reset workflow and command audit. Gate: end-to-end normal run, overheating trip, recovery, stale-sensor behavior and persistence; verify in a real browser.
 5. **Offensive-security scenarios + detection:** attack actual project protocol/control interfaces; include benign fault/curtailment controls and the safety-boundary tests. Gate: capture request/packet and state evidence, demonstrate both detected and undetected outcomes honestly, tune false positives, and rerun after fixes.
 6. **Reproducible local packaging:** one-command startup for the local Python services, sample data, full scenario replay and machine-readable test results. Gate: clean installation and reproduction offline. An isolated two-VM target/attacker deployment is **optional later**, when testing network attacks from a distinct host is useful; it is not needed for initial simulation or safety-loop development.
-7. **3-D visual twin (final milestone):** Blender turbine GLB and Three.js wind-farm control-room view consume the existing FastAPI/WebSocket feed; no replacement of physics, collector or safety logic. Gate: blade RPM and stop/brake visuals match reported state, historical replay works, clicking a turbine shows live SCADA details, and the forged-telemetry scenario visibly differs from recorded ground truth in the evaluation view.
 
 ## Deployment and guardrails
 
-**Development now:** Run local Python scripts on the Pi. A second local Python process can model a logically separate safety service when that stage is built; no VM, Docker Compose, or Kali installation is needed for the current offline baseline. Distinct processes on one machine are not physical safety independence. **Optional later offsec test environment on an x86 laptop:** VirtualBox with an Ubuntu Server target VM and a separate Kali attacker VM on a host-only network; the wind-farm services can run inside Ubuntu and expose only selected local interfaces to Kali. Use VM snapshots before experiments and avoid bridged networking. A Pi-native Docker deployment is another later option but shares the host kernel. Never assume an x86 Kali VM runs natively on an ARM64 Pi. CSV fixtures and a local browser make the baseline offline-capable. Avoid proprietary operator data, logos, plant topology, or any assertion this is its actual infrastructure.
+**Deployment:** development and tests run as local processes on one host. The target deployment is two Ubuntu Server VMs — `wf-field` (Level 0 + 1: field process, safety function, PLC, RTU) and `wf-scada` (Level 2: collector, alarm engine, command service, HMI) — plus a Kali VM, on an isolated `OT-Net 10.10.1.0/24` and a simulated internet `SIM-Internet 203.0.113.0/24` with no real uplink. Field I/O and the safety console stay host-local on `wf-field`; only Modbus TCP and HTTP cross the network.
 
-**Current executable slice (2026-10-21):** The project includes two explicitly separate tracks. The **historical observation track** reads three turbines from an attributed published Greek wind-farm SCADA dataset, publishes selected measurements through an actual loopback **Modbus TCP server**, polls them in a distinct collector process, persists observations/quality/events in SQLite, and serves a read-only browser HMI. Original recorded event logs enter the historian as a separately imported CSV feed, **not through Modbus**. The **synthetic engineering track** uses reanalysis weather, a windpowerlib turbine approximation, operational states, and a logically separate local safety child process; it has tested trip, denied start, reset and restart but no physical instrumentation, safety certification, or networked command interface. The historical track cannot be "controlled" retroactively. There is no VM requirement now; no data diode, IEC 61400-25 stack, authenticated controller/API, independently instrumented SIS, or 3-D visualization yet.
+**Current executable slice (2026-10-21):** The project includes two explicitly separate tracks. The **historical observation track** reads three turbines from an attributed published Greek wind-farm SCADA dataset, publishes selected measurements through an actual loopback **Modbus TCP server**, polls them in a distinct collector process, persists observations/quality/events in SQLite, and serves a read-only browser HMI. Original recorded event logs enter the historian as a separately imported CSV feed, **not through Modbus**. The **synthetic engineering track** uses reanalysis weather, a windpowerlib turbine approximation, operational states, and a logically separate local safety child process; it has tested trip, denied start, reset and restart but no physical instrumentation, safety certification, or networked command interface. The historical track cannot be "controlled" retroactively. At that stage there was no data diode, IEC 61400-25 stack, authenticated controller/API or independently instrumented SIS.
 
 ### Executable Modbus/SCADA/HMI slice
 
@@ -246,9 +243,6 @@ Run: `.venv/bin/python -m scripts.plant_hmi [--host H] [--port P] [--commands UR
 
 - windpowerlib ModelChain supports weather-to-turbine power output and custom turbine power curves: https://windpowerlib.readthedocs.io/en/stable/modelchain_example_notebook.html
 - PyModbus offers async TCP server endpoints: https://pymodbus.readthedocs.io/en/latest/source/server.html
-- Three.js GLTFLoader supports loading a GLB turbine asset: https://threejs.org/docs/pages/GLTFLoader.html
-- FastAPI WebSockets support live reported telemetry updates to the browser: https://fastapi.tiangolo.com/advanced/websockets/
-- Blender's glTF exporter supports creating a bundled turbine asset: https://docs.blender.org/manual/en/latest/addons/import_export/scene_gltf2.html
 - Open-Meteo Historical Weather API supports 100 m wind speed and unit selection; optional weather data source, not needed for offline demo: https://open-meteo.com/en/docs/historical-weather-api
 - IEC 61400-1 covers wind-turbine control and protection subsystems: https://webstore.iec.ch/en/publication/26423
 - IEC 61511-1 specifies SIS requirements for the process-industry sector, not an automatic compliance claim for this wind-turbine demo: https://webstore.iec.ch/en/iec_catalog/product/preview/?id=L3B1Yi9wZGYvcHJldmlldy9pbmZvX2llYzYxNTExLTF7ZWQyLjB9Yi5wZGY%3D
